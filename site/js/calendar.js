@@ -153,10 +153,25 @@ function renderCalendarView() {
       renderCalendar();
     });
 
+    const labelWrapper = document.createElement('div');
+    labelWrapper.style.flex = '1';
+    labelWrapper.style.cursor = 'pointer';
+    
     const label = document.createElement('label');
     label.htmlFor = `cal-check-${c.id}`;
     label.textContent = c.name || '(Untitled)';
     label.style.cursor = 'pointer';
+    label.style.display = 'block';
+    
+    const ownerSpan = document.createElement('span');
+    ownerSpan.style.fontSize = '11px';
+    ownerSpan.style.color = 'var(--muted)';
+    ownerSpan.style.display = 'block';
+    ownerSpan.style.marginTop = '2px';
+    ownerSpan.textContent = c.course_owner ? `by ${c.course_owner}` : '';
+    
+    labelWrapper.appendChild(label);
+    labelWrapper.appendChild(ownerSpan);
 
     // Make entire card clickable
     item.addEventListener('click', () => {
@@ -167,7 +182,7 @@ function renderCalendarView() {
     });
 
     item.appendChild(checkbox);
-    item.appendChild(label);
+    item.appendChild(labelWrapper);
     selectorDiv.appendChild(item);
   }
   els.calendarGrid.appendChild(selectorDiv);
