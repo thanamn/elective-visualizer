@@ -46,6 +46,7 @@ async function loadData() {
       const json = await res.json();
       state.raw = json;
       setStatus(`Loaded ${url}`);
+      updateDataInfo(url, json);
       renderAuto(json);
       return;
     } catch (err) {
@@ -76,4 +77,31 @@ function renderError(err) {
   div.className = 'error';
   div.innerHTML = `<h2>Error</h2><pre>${escapeHtml(err.message || String(err))}</pre>`;
   els.content.appendChild(div);
+}
+
+function updateDataInfo(url, data) {
+  const infoEl = document.getElementById('dataInfo');
+  if (!infoEl) return;
+  
+  const fileName = url.split('/').pop().split('?')[0];
+  const timestamp = data.data_gathered_at;
+  
+  let text = `Data source: ${fileName}`;
+  if (timestamp) {
+    try {
+      const date = new Date(timestamp);
+      const formatted = date.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      text += ` • Gathered: ${formatted}`;
+    } catch (e) {
+      text += ` • Gathered: ${timestamp}`;
+    }
+  }
+  
+  infoEl.textContent = text;
 }

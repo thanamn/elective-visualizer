@@ -1,4 +1,5 @@
 {
+    "data_gathered_at": "2025-12-18T15:28:16+07:00",
     "courses": [
         {
             "course_owner": "จุฬาลงกรณ์มหาวิทยาลัย",
@@ -2383,6 +2384,5 @@
         }
     ],
     "total_courses": 43,
-    "message": "สำเร็จ",
-    "data_gathered_at": "2025-12-18T15:28:16+07:00"
+    "message": "สำเร็จ"
 }
