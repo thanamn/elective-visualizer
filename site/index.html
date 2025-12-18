@@ -18,7 +18,13 @@
       <button id="clearSearch" class="secondary" title="Clear search">Clear</button>
       <button id="reloadBtn" title="Reload data">Reload</button>
     </div>
-    <div id="summary" class="summary"></div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <div id="summary" class="summary"></div>
+      <div class="view-toggle">
+        <button id="viewList" class="view-toggle-btn active">List</button>
+        <button id="viewCalendar" class="view-toggle-btn">Calendar</button>
+      </div>
+    </div>
   </section>
 
   <section class="filters" aria-label="Course filters">

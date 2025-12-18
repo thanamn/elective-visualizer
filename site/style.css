@@ -75,6 +75,36 @@ button.secondary {
 }
 button:disabled { opacity: 0.6; cursor: not-allowed; }
 
+.view-toggle {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.view-toggle-btn {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+}
+
+.view-toggle-btn:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+.view-toggle-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
 .summary { color: var(--muted); }
 
 .content { padding: 12px 16px 32px; }

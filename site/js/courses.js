@@ -93,23 +93,6 @@ function renderCourses() {
     wrap.appendChild(renderCourseCard(c));
   }
   els.content.replaceChildren(wrap);
-
-  // add calendar button
-  const calBtn = document.createElement('button');
-  calBtn.textContent = '📅 View Calendar';
-  calBtn.className = 'calendar-btn';
-  calBtn.style.position = 'fixed';
-  calBtn.style.bottom = '20px';
-  calBtn.style.right = '20px';
-  calBtn.style.zIndex = '50';
-  calBtn.style.padding = '10px 16px';
-  calBtn.style.borderRadius = '8px';
-  calBtn.style.background = 'var(--accent)';
-  calBtn.style.color = 'white';
-  calBtn.style.border = 'none';
-  calBtn.style.cursor = 'pointer';
-  calBtn.addEventListener('click', () => window.showCalendarView());
-  els.content.appendChild(calBtn);
 }
 
 function renderCourseCard(c) {

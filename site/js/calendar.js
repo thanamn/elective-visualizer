@@ -79,6 +79,12 @@ function showCalendarView() {
 function hideCalendarView() {
   els.calendarSection?.classList.add('hidden');
   els.content.classList.remove('hidden');
+  
+  // Reset toggle buttons
+  const viewListBtn = document.getElementById('viewList');
+  const viewCalendarBtn = document.getElementById('viewCalendar');
+  if (viewListBtn) viewListBtn.classList.add('active');
+  if (viewCalendarBtn) viewCalendarBtn.classList.remove('active');
 }
 
 function renderCalendarView() {

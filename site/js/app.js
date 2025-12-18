@@ -48,6 +48,24 @@ window.addEventListener('keydown', (e) => {
 // Calendar back button
 if (els.calendarBackBtn) els.calendarBackBtn.addEventListener('click', hideCalendarView);
 
+// View toggle buttons
+const viewListBtn = document.getElementById('viewList');
+const viewCalendarBtn = document.getElementById('viewCalendar');
+
+if (viewListBtn && viewCalendarBtn) {
+  viewListBtn.addEventListener('click', () => {
+    hideCalendarView();
+    viewListBtn.classList.add('active');
+    viewCalendarBtn.classList.remove('active');
+  });
+  
+  viewCalendarBtn.addEventListener('click', () => {
+    window.showCalendarView();
+    viewCalendarBtn.classList.add('active');
+    viewListBtn.classList.remove('active');
+  });
+}
+
 // Boot the app
 document.addEventListener('DOMContentLoaded', () => {
   loadData();
