@@ -2,17 +2,43 @@
  * Data loading and view routing
  */
 
-// Try to load JSON next to index.html first (for GitHub Pages),
-// then fall back to parent folder (for local dev layout),
-// and finally from the repo's raw URL as a last resort.
-const DATA_URL_CANDIDATES = [
-  '../elective_2025.json',
-  'https://raw.githubusercontent.com/thanamn/elective-visualizer/main/elective_2025.json'
-];
+// Build candidate URLs based on ?data= param or defaults.
+// Usage examples:
+//   - Default: tries elective_latest.json then elective_2025.json from repo root (and raw GH)
+//   - Custom:  ?data=elective_2025_2025-12-18T09-00.json
+//   - Remote:  ?data=https://example.com/myfile.json
+function buildDataUrls() {
+  const params = new URLSearchParams(window.location.search);
+  const dataParam = params.get('data');
+  const chosen = dataParam === 'latest' ? 'elective_latest.json' : dataParam;
+  const names = chosen ? [chosen] : ['elective_latest.json', 'elective_2025.json'];
+  const urls = [];
+  const seen = new Set();
+
+  const add = (u) => {
+    if (!u || seen.has(u)) return;
+    seen.add(u);
+    urls.push(u);
+  };
+
+  for (const name of names) {
+    if (name.startsWith('http')) {
+      add(name);
+      continue;
+    }
+    // Relative to site/ going up one level (repo root)
+    const sanitized = name.replace(/^\.\/+/, '');
+    add(`../${sanitized}`);
+    // Raw GitHub fallback
+    add(`https://raw.githubusercontent.com/thanamn/elective-visualizer/main/${sanitized}`);
+  }
+  return urls;
+}
 
 async function loadData() {
   let lastErr = null;
-  for (const url of DATA_URL_CANDIDATES) {
+  const candidates = buildDataUrls();
+  for (const url of candidates) {
     setStatus(`Loading ${url}…`);
     try {
       const res = await fetch(url, { cache: 'no-store' });
