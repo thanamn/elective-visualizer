@@ -179,6 +179,16 @@ function renderCalendarView() {
     labelWrapper.appendChild(label);
     labelWrapper.appendChild(ownerSpan);
 
+    // Info button
+    const infoBtn = document.createElement('button');
+    infoBtn.className = 'course-info-btn';
+    infoBtn.textContent = '';
+    infoBtn.title = 'View details';
+    infoBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openModal(c);
+    });
+
     // Make entire card clickable
     item.addEventListener('click', () => {
       checkbox.checked = !checkbox.checked;
@@ -189,31 +199,10 @@ function renderCalendarView() {
 
     item.appendChild(checkbox);
     item.appendChild(labelWrapper);
+    item.appendChild(infoBtn);
     selectorDiv.appendChild(item);
   }
   els.calendarGrid.appendChild(selectorDiv);
-
-  // legend
-  const legend = document.createElement('div');
-  legend.className = 'cal-legend';
-  legend.style.marginTop = '16px';
-  const legItems = [
-    { color: '#e6d452', label: '1st Half (Yellow)' },
-    { color: '#9370db', label: '2nd Half (Purple)' },
-  ];
-  for (const item of legItems) {
-    const div = document.createElement('div');
-    div.className = 'legend-item';
-    const col = document.createElement('div');
-    col.className = 'legend-color';
-    col.style.background = item.color;
-    const lbl = document.createElement('span');
-    lbl.textContent = item.label;
-    div.appendChild(col);
-    div.appendChild(lbl);
-    legend.appendChild(div);
-  }
-  els.calendarGrid.appendChild(legend);
 
   // Render calendar at bottom
   renderCalendar();
