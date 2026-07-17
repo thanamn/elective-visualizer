@@ -1,130 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Elective Visualizer</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="Explore CEDT electives, compare demand, and build a conflict-aware semester plan.">
+  <meta property="og:title" content="CEDT Elective Explorer">
+  <meta property="og:description" content="Find your electives. See your semester.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thanamn.github.io/elective-visualizer/">
+  <meta property="og:image" content="https://thanamn.github.io/elective-visualizer/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CEDT Elective Explorer — Find the elective that fits.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CEDT Elective Explorer">
+  <meta name="twitter:description" content="Find your electives. See your semester.">
+  <meta name="twitter:image" content="https://thanamn.github.io/elective-visualizer/og.png">
+  <link rel="canonical" href="https://thanamn.github.io/elective-visualizer/">
+  <title>CEDT Elective Explorer</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./js/app.js"></script>
 </head>
 <body>
-  <header class="app-header">
-    <h1><a href="./" style="color: inherit; text-decoration: none;">Elective Visualizer</a></h1>
-    <div class="file-status" id="fileStatus">Loading elective_2025.json…</div>
+  <a class="skip-link" href="#mainContent">Skip to courses</a>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="CEDT Elective Explorer home">
+      <span class="brand-mark" aria-hidden="true">E</span>
+      <span class="brand-copy">
+        <strong>Elective Explorer</strong>
+        <span>CEDT · Semester 2/2568</span>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <span class="data-status" id="dataStatus" role="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Loading course data
+      </span>
+      <button class="icon-button" id="reloadButton" type="button" aria-label="Reload course data" title="Reload course data">
+        <span aria-hidden="true">↻</span>
+      </button>
+    </div>
   </header>
 
-  <section class="toolbar">
-    <div class="controls">
-      <input id="searchInput" type="search" placeholder="Search… (Press Esc to clear)" aria-label="Search" />
-      <button id="clearSearch" class="secondary" title="Clear search">Clear</button>
-      <button id="reloadBtn" title="Reload data">Reload</button>
-    </div>
-    <div style="display: flex; align-items: center; gap: 16px;">
-      <div id="summary" class="summary"></div>
-      <div class="view-toggle">
-        <button id="viewList" class="view-toggle-btn active">List</button>
-        <button id="viewCalendar" class="view-toggle-btn">Calendar</button>
+  <main id="mainContent">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">Your semester, at a glance</p>
+        <h1 id="heroTitle">Find the elective that <em>fits.</em></h1>
+        <p class="hero-lede">Search every course, read the useful details, and test your choices against the semester before ranking day.</p>
       </div>
+
+      <div class="hero-stats" aria-label="Course overview">
+        <div class="stat-card stat-card-primary">
+          <span class="stat-number" id="courseStat">—</span>
+          <span class="stat-label">electives</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="categoryStat">—</span>
+          <span class="stat-label">study areas</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="planStat">0</span>
+          <span class="stat-label">in your plan</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Elective planning workspace">
+      <div class="view-bar">
+        <div class="view-tabs" role="tablist" aria-label="Workspace views">
+          <button class="view-tab is-active" id="exploreTab" type="button" role="tab" aria-selected="true" aria-controls="exploreView">
+            Explore courses
+          </button>
+          <button class="view-tab" id="planTab" type="button" role="tab" aria-selected="false" aria-controls="planView">
+            My timetable
+            <span class="count-badge" id="planCountBadge" aria-label="0 selected courses">0</span>
+          </button>
+        </div>
+        <p class="updated-at" id="updatedAt">Preparing the latest snapshot…</p>
+      </div>
+
+      <section id="exploreView" role="tabpanel" aria-labelledby="exploreTab">
+        <div class="filter-shell">
+          <div class="search-field">
+            <label class="sr-only" for="searchInput">Search courses</label>
+            <span class="search-symbol" aria-hidden="true"></span>
+            <input id="searchInput" type="search" placeholder="Search course, teacher, topic…" autocomplete="off">
+            <kbd aria-hidden="true">/</kbd>
+          </div>
+
+          <div class="filter-row">
+            <label class="select-field">
+              <span>Day</span>
+              <select id="daySelect">
+                <option value="">Any day</option>
+                <option value="MONDAY">Monday</option>
+                <option value="TUESDAY">Tuesday</option>
+                <option value="WEDNESDAY">Wednesday</option>
+                <option value="THURSDAY">Thursday</option>
+                <option value="FRIDAY">Friday</option>
+                <option value="SATURDAY">Saturday</option>
+              </select>
+            </label>
+
+            <label class="select-field">
+              <span>Term</span>
+              <select id="halfSelect">
+                <option value="">Any length</option>
+                <option value="FULL_SEMESTER">Full semester</option>
+                <option value="FIRST_HALF">First half</option>
+                <option value="SECOND_HALF">Second half</option>
+              </select>
+            </label>
+
+            <label class="select-field">
+              <span>Year</span>
+              <select id="yearSelect">
+                <option value="">Any year</option>
+                <option value="YEAR_TWO">Year 2</option>
+                <option value="YEAR_THREE">Year 3</option>
+              </select>
+            </label>
+
+            <label class="select-field">
+              <span>Language</span>
+              <select id="languageSelect">
+                <option value="">Any language</option>
+                <option value="THAI">Thai</option>
+                <option value="ENGLISH">English</option>
+              </select>
+            </label>
+
+            <label class="select-field select-field-wide">
+              <span>Area</span>
+              <select id="categorySelect">
+                <option value="">All areas</option>
+              </select>
+            </label>
+
+            <label class="select-field">
+              <span>Sort</span>
+              <select id="sortSelect">
+                <option value="recommended">Recommended</option>
+                <option value="interest">Most interest</option>
+                <option value="availability">Most availability</option>
+                <option value="name">Course name</option>
+              </select>
+            </label>
+
+            <button class="text-button reset-button" id="resetFilters" type="button" hidden>Clear filters</button>
+          </div>
+        </div>
+
+        <div class="results-header">
+          <div>
+            <p class="eyebrow">Course catalogue</p>
+            <h2 id="resultsTitle">All electives</h2>
+          </div>
+          <p class="results-count" id="resultsCount" aria-live="polite">Loading…</p>
+        </div>
+
+        <div class="explore-layout">
+          <div>
+            <div class="course-grid" id="courseGrid" aria-live="polite" aria-busy="true">
+              <div class="loading-card"></div>
+              <div class="loading-card"></div>
+              <div class="loading-card"></div>
+            </div>
+            <div class="empty-state" id="emptyState" hidden>
+              <span class="empty-mark" aria-hidden="true">0</span>
+              <h3>No courses match this combination.</h3>
+              <p>Try removing a filter or searching for a broader topic.</p>
+              <button class="primary-button" id="emptyResetButton" type="button">Show all electives</button>
+            </div>
+          </div>
+
+          <aside class="plan-preview" aria-labelledby="planPreviewTitle">
+            <div class="plan-preview-heading">
+              <div>
+                <p class="eyebrow">Shortlist</p>
+                <h2 id="planPreviewTitle">Your plan</h2>
+              </div>
+              <span class="plan-total" id="planPreviewCount">0</span>
+            </div>
+
+            <div class="plan-placeholder" id="planPlaceholder">
+              <span aria-hidden="true">＋</span>
+              <p>Add courses to compare their schedules here.</p>
+            </div>
+
+            <ol class="mini-plan-list" id="miniPlanList"></ol>
+            <div class="plan-preview-footer">
+              <p id="planPreviewStatus">No timetable conflicts.</p>
+              <button class="primary-button full-button" id="openPlanButton" type="button" disabled>
+                Open timetable
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="planView" role="tabpanel" aria-labelledby="planTab" hidden>
+        <div class="plan-hero">
+          <div>
+            <p class="eyebrow">Conflict-aware planning</p>
+            <h2>See the whole semester.</h2>
+            <p>Your selected electives appear alongside the fixed Year 2 timetable. Red cells need a second look.</p>
+          </div>
+          <div class="plan-hero-actions">
+            <button class="text-button" id="clearPlanButton" type="button">Clear plan</button>
+            <button class="secondary-button" id="backToCoursesButton" type="button">
+              <span aria-hidden="true">←</span>
+              Browse courses
+            </button>
+          </div>
+        </div>
+
+        <div class="plan-summary-grid">
+          <article class="summary-panel">
+            <span class="summary-icon" aria-hidden="true">01</span>
+            <div>
+              <strong id="selectedSummary">No electives selected</strong>
+              <span>Shortlisted courses</span>
+            </div>
+          </article>
+          <article class="summary-panel">
+            <span class="summary-icon" aria-hidden="true">02</span>
+            <div>
+              <strong id="conflictSummary">Clear so far</strong>
+              <span>Schedule check</span>
+            </div>
+          </article>
+          <article class="summary-panel">
+            <span class="summary-icon" aria-hidden="true">03</span>
+            <div>
+              <strong id="termSummary">—</strong>
+              <span>Course format</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="selection-strip" id="selectionStrip" aria-label="Selected electives"></div>
+
+        <section class="timetable-section" aria-labelledby="timetableTitle">
+          <div class="timetable-heading">
+            <div>
+              <p class="eyebrow">18-week map</p>
+              <h2 id="timetableTitle">Semester timetable</h2>
+            </div>
+            <div class="legend" aria-label="Timetable legend">
+              <span><i class="legend-core"></i>Core class</span>
+              <span><i class="legend-elective"></i>Elective</span>
+              <span><i class="legend-conflict"></i>Conflict</span>
+            </div>
+          </div>
+          <div class="timetable-notice" id="timetableNotice" role="status">
+            Add an elective to begin checking your semester.
+          </div>
+          <div class="timetable-scroll" id="timetableScroll">
+            <div class="timetable-grid" id="timetableGrid"></div>
+          </div>
+          <p class="scroll-hint">Scroll sideways to see all 18 weeks.</p>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>CEDT Elective Explorer</strong>
+      <p>A planning aid built from the latest available course snapshot.</p>
     </div>
-  </section>
-
-  <section class="filters" aria-label="Course filters">
-    <div class="filters-row">
-      <label>
-        <span>Sort</span>
-        <select id="sortSelect">
-          <option value="name">Name (A→Z)</option>
-          <option value="enrolled">Most enrolled</option>
-          <option value="seat">Seats (desc)</option>
-          <option value="newest">Newest</option>
-          <option value="oldest">Oldest</option>
-        </select>
-      </label>
-      <label>
-        <span>Day</span>
-        <select id="daySelect">
-          <option value="">Any</option>
-          <option value="MONDAY">Monday</option>
-          <option value="TUESDAY">Tuesday</option>
-          <option value="WEDNESDAY">Wednesday</option>
-          <option value="THURSDAY">Thursday</option>
-          <option value="FRIDAY">Friday</option>
-          <option value="SATURDAY">Saturday</option>
-          <option value="SUNDAY">Sunday</option>
-        </select>
-      </label>
-      <label>
-        <span>Language</span>
-        <select id="langSelect">
-          <option value="">Any</option>
-          <option value="THAI">Thai</option>
-          <option value="ENGLISH">English</option>
-        </select>
-      </label>
-      <label>
-        <span>Semester</span>
-        <select id="halfSelect">
-          <option value="">Any</option>
-          <option value="FULL_SEMESTER">Full</option>
-          <option value="FIRST_HALF">First half</option>
-          <option value="SECOND_HALF">Second half</option>
-        </select>
-      </label>
-      <label>
-        <span>Year</span>
-        <select id="yearSelect">
-          <option value="">Any</option>
-          <option value="YEAR_TWO">Year 2</option>
-          <option value="YEAR_THREE">Year 3</option>
-        </select>
-      </label>
-      <label>
-        <span>Category</span>
-        <select id="categorySelect">
-          <option value="">All</option>
-        </select>
-      </label>
-      <button id="resetFilters" class="secondary">Reset</button>
-    </div>
-  </section>
-
-  <main id="content" class="content" aria-live="polite"></main>
-
-  <section id="calendarSection" class="calendar-section hidden">
-    <div class="calendar-toolbar">
-      <h2>Semester Calendar</h2>
-      <button id="calendarBackBtn" class="secondary">← Back to list</button>
-      <div id="calendarInfo" class="calendar-info"></div>
-    </div>
-    <div id="calendarGrid" class="calendar-grid"></div>
-  </section>
-
-  <footer class="app-footer">
-    <span id="dataInfo">Loading data...</span>
+    <p class="footer-note">Always confirm times and eligibility in the official registration system.</p>
   </footer>
 
-  <!-- Modal for course details -->
-  <div id="modal" class="modal hidden">
-    <div class="modal-backdrop" data-close="true"></div>
-    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
-      <h2 id="modalTitle"></h2>
-      <div id="modalMeta" class="meta"></div>
-      <div id="modalSched" class="sched"></div>
-      <div id="modalChips" class="chips"></div>
-      <div id="modalStats" class="row"></div>
-      <div id="modalDesc" class="desc full"></div>
+  <div class="mobile-plan-bar" id="mobilePlanBar" hidden>
+    <div>
+      <strong id="mobilePlanCount">0 courses</strong>
+      <span id="mobilePlanStatus">No conflicts</span>
     </div>
+    <button class="primary-button" id="mobileOpenPlanButton" type="button">View plan</button>
   </div>
 
-  <!-- Main module scripts in order of dependencies -->
-  <script defer src="./js/state.js"></script>
-  <script defer src="./js/utils.js"></script>
-  <script defer src="./js/loader.js"></script>
-  <script defer src="./js/courses.js"></script>
-  <script defer src="./js/table.js"></script>
-  <script defer src="./js/tree.js"></script>
-  <script defer src="./js/modal.js"></script>
-  <script defer src="./js/calendar.js"></script>
-  <script defer src="./js/app.js"></script>
+  <dialog class="course-dialog" id="courseDialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close" id="dialogCloseButton" type="button" aria-label="Close course details">×</button>
+    <div class="dialog-content" id="dialogContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

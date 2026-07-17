@@ -1,0 +1,10 @@
+{
+  "name": "cedt-elective-explorer",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-sites.mjs",
+    "check": "node --check site/js/app.js && node scripts/check-build.mjs"
+  }
+}
