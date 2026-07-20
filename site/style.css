@@ -1527,9 +1527,9 @@ kbd {
 
 .timetable-scroll {
   isolation: isolate;
-  max-height: 68vh;
   padding-bottom: 5px;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: visible;
   scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
 }
 
