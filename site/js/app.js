@@ -97,9 +97,6 @@ const ui = {
   openPlanButton: document.getElementById("openPlanButton"),
   backToCoursesButton: document.getElementById("backToCoursesButton"),
   clearPlanButton: document.getElementById("clearPlanButton"),
-  selectedSummary: document.getElementById("selectedSummary"),
-  conflictSummary: document.getElementById("conflictSummary"),
-  termSummary: document.getElementById("termSummary"),
   selectionStrip: document.getElementById("selectionStrip"),
   timetableSection: document.querySelector(".timetable-section"),
   fixedCourseChoiceControl: document.getElementById("fixedCourseChoiceControl"),
@@ -1096,9 +1093,6 @@ function renderPlanView(selected, analysis) {
   const count = selected.length;
   const conflictCount = analysis.conflictGroups.length;
   const needsFixedCourseChoice = Boolean(FIXED_COURSE_CHOICE && !state.fixedCourseChoice);
-  ui.selectedSummary.textContent = count ? `${count} selected ${pluralize(count, "elective")}` : "No electives selected";
-  ui.conflictSummary.textContent = conflictCount ? `${conflictCount} ${pluralize(conflictCount, "overlap")} found` : "Clear so far";
-  ui.termSummary.textContent = formatTermSummary(selected);
 
   updateTimetableControls();
   renderSelectionStrip(selected);
@@ -1125,24 +1119,6 @@ function renderPlanView(selected, analysis) {
     ui.timetableNotice.classList.remove("has-conflict");
     ui.timetableNotice.classList.remove("needs-choice");
   }
-}
-
-function formatTermSummary(courses) {
-  if (!courses.length) return "—";
-  let full = 0;
-  let half = 0;
-  let tbd = 0;
-  courses.forEach((course) => {
-    const formats = new Set(validSchedules(course).map((item) => item.semester_half));
-    if (formats.has("FULL_SEMESTER")) full += 1;
-    else if (formats.has("FIRST_HALF") || formats.has("SECOND_HALF")) half += 1;
-    else tbd += 1;
-  });
-  const parts = [];
-  if (full) parts.push(`${full} full`);
-  if (half) parts.push(`${half} half`);
-  if (tbd) parts.push(`${tbd} TBD`);
-  return parts.join(" · ") || "Schedule TBD";
 }
 
 function renderSelectionStrip(selected) {
