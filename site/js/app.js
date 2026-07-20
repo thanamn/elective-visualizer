@@ -41,7 +41,6 @@ const state = {
     days: new Set(),
     half: "",
     year: "",
-    language: "",
     category: "",
     sort: "recommended",
   },
@@ -83,7 +82,6 @@ const ui = {
   dayFilter: document.getElementById("dayFilter"),
   halfSelect: document.getElementById("halfSelect"),
   yearSelect: document.getElementById("yearSelect"),
-  languageSelect: document.getElementById("languageSelect"),
   categorySelect: document.getElementById("categorySelect"),
   sortSelect: document.getElementById("sortSelect"),
   resetFilters: document.getElementById("resetFilters"),
@@ -155,7 +153,6 @@ function bindEvents() {
   });
   ui.halfSelect.addEventListener("change", () => updateFilter("half", ui.halfSelect.value));
   ui.yearSelect.addEventListener("change", () => updateFilter("year", ui.yearSelect.value));
-  ui.languageSelect.addEventListener("change", () => updateFilter("language", ui.languageSelect.value));
   ui.categorySelect.addEventListener("change", () => updateFilter("category", ui.categorySelect.value));
   ui.sortSelect.addEventListener("change", () => updateFilter("sort", ui.sortSelect.value));
   ui.resetFilters.addEventListener("click", resetFilters);
@@ -563,12 +560,11 @@ function parseDataTimestamp(value) {
 
 function applyFilters() {
   const query = normalizeText(state.filters.search);
-  const { days, half, year, language, category, sort } = state.filters;
+  const { days, half, year, category, sort } = state.filters;
 
   let courses = state.courses.filter((course) => {
     if (query && !courseSearchText(course).includes(query)) return false;
     if (year && !(course.quota_type || []).includes(year)) return false;
-    if (language && course.class_language !== language) return false;
     if (category && !(course.course_category || []).includes(category)) return false;
 
     const schedule = Array.isArray(course.schedule) ? course.schedule : [];
@@ -626,7 +622,6 @@ function updateFilterSummary() {
     || state.filters.days.size
     || state.filters.half
     || state.filters.year
-    || state.filters.language
     || state.filters.category
     || state.filters.sort !== "recommended",
   );
@@ -648,7 +643,6 @@ function resetFilters() {
     days: new Set(),
     half: "",
     year: "",
-    language: "",
     category: "",
     sort: "recommended",
   };
@@ -658,7 +652,6 @@ function resetFilters() {
   });
   ui.halfSelect.value = "";
   ui.yearSelect.value = "";
-  ui.languageSelect.value = "";
   ui.categorySelect.value = "";
   ui.sortSelect.value = "recommended";
   applyFilters();
