@@ -1,0 +1,1514 @@
+{
+    "courses": [
+        {
+            "course_owner": "บริษัท เอคเซนเชอร์ โซลูชั่นส์ จำกัด",
+            "course_owner_id": "cm5km7gk0003mn5iz17qbpe02",
+            "id": "cmra0d52e07dsos8x2rb5ggvb",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "AI and is Application",
+            "teacher_name": "คุณณัฎฐา จารุศิลาวงศ์",
+            "section_no": 122,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>  </p>",
+            "short_description": "ตอนเรียนที่ 122 | ศึกษาแนวคิดของปัญญาประดิษฐ์ โดยเน้น Generative AI และ Agentic AI การสร้าง AI Agent และการใช้งานเครื่องมือ Claude เพื่อประยุกต์ใช้ในการทำงานและการพัฒนาระบบ",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T02:06:48.038Z",
+            "updated_at": "2026-07-14T01:58:30.712Z",
+            "quota_type": [
+                "YEAR_THREE",
+                "YEAR_FOURTH"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km7gk0003mn5iz17qbpe02",
+                        "company_name_th": "บริษัท เอคเซนเชอร์ โซลูชั่นส์ จำกัด"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "SATURDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 25
+            },
+            "course_category": [
+                "Data science / AI",
+                "Software"
+            ],
+            "total_enrolled": 25,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmra2rhry07ekos8xia51c97q",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "AI & Digital marketing for Tech Entrepreneurs",
+            "teacher_name": "คุณปฐมพงศ์ สิรชัยรัตน์",
+            "section_no": 116,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการเรียนรู้ด้านธุรกิจ การตลาด และการเป็นผู้ประกอบการในยุคดิจิทัล โดยถ่ายทอดประสบการณ์จากการดำเนินธุรกิจจริง ครอบคลุมแนวคิดด้าน Startup, Hackathon การสร้างโมเดลธุรกิจ กลยุทธ์การแข่งขัน และการตลาดสำหรับผู้ประกอบการ รวมถึงการประยุกต์ใช้ AI เพื่อสนับสนุนงานด้านธุรกิจและการตลาด ตลอดจนการจัดทำแผนธุรกิจและแนวทางการระดมทุน เพื่อเตรียมความพร้อมสู่การเป็นผู้ประกอบการหรือการทำงานในองค์กรที่ต้องการบุคลากรที่มีแนวคิดเชิงผู้ประกอบการ (Entrepreneurial Mindset)<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong></p><ul><li><p>- ความรู้พื้นฐานด้านการเป็นผู้ประกอบการและการสร้างธุรกิจ Startup</p><p>- ความเข้าใจด้านกลยุทธ์ธุรกิจ การแข่งขัน และการตลาด</p><p>- ความรู้ด้านจิตวิทยาการตลาดและการสร้างสรรค์แคมเปญการตลาด</p><p>- ทักษะการประยุกต์ใช้ AI เพื่อสนับสนุนงานด้านธุรกิจและการตลาด พร้อมเข้าใจข้อดีและข้อจำกัด</p><p>- ความสามารถในการจัดทำแผนธุรกิจเบื้องต้น การนำเสนอแนวคิด และการวางแผนระดมทุน</p><p>- แนวคิดการทำงานแบบผู้ประกอบการและการพัฒนาทักษะที่หลากหลาย (Multi-skill)</p></li><li><p><br>🔗 <strong>Course Syllabus</strong></p></li></ul><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1caq_LGYtzf8prtZh_CtMcJiN2neCoWP0/view?usp=sharing\">https://drive.google.com/file/d/1caq_LGYtzf8prtZh_CtMcJiN2neCoWP0/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 116 | รายวิชานี้สอนการเป็นผู้ประกอบการยุคดิจิทัล ครอบคลุม Startup การตลาด การสร้างโมเดลธุรกิจ Hackathon การใช้ AI ในธุรกิจ และการจัดทำแผนธุรกิจเพื่อเตรียมสู่การเป็นผู้ประกอบการ",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T03:13:56.926Z",
+            "updated_at": "2026-07-14T01:47:39.455Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "MONDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 28
+            },
+            "course_category": [
+                "Project Management",
+                "Startup",
+                "Data science / AI"
+            ],
+            "total_enrolled": 28,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmr9z3uvi07d3os8xdhoua1hd",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "AI Frontier: Exploring State-of-the-Art Real-World AI Applications",
+            "teacher_name": "คุณเจษฎา กาญจนะ",
+            "section_no": 110,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการศึกษาองค์ความรู้ด้านปัญญาประดิษฐ์ (Artificial Intelligence: AI) ตั้งแต่พื้นฐานจนถึงเทคโนโลยีสมัยใหม่ ครอบคลุม Large Language Models (LLMs), Agentic AI และ Multi-Agent Systems รวมถึงการประยุกต์ใช้ AI ในด้านการแพทย์ ชีวมิติ การประมวลผลภาพ เสียง และสัญญาณชีวภาพ ความมั่นคงปลอดภัยไซเบอร์ อินเทอร์เน็ตของสรรพสิ่ง (Industrial IoT) และการติดตามตรวจสอบสิ่งแวดล้อม ผู้เรียนจะได้เรียนรู้หลักการทำงานของระบบ AI การรับรู้ การวิเคราะห์ การตัดสินใจ และการโต้ตอบกับผู้ใช้ พร้อมทั้งศึกษาประเด็นด้านจริยธรรม ความปลอดภัย และนโยบายที่เกี่ยวข้อง ตลอดจนฝึกปฏิบัติผ่านกรณีศึกษาและโครงงานขนาดเล็กเพื่อประยุกต์ใช้ความรู้กับสถานการณ์จริง<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- อธิบายหลักการ แนวคิด และสถาปัตยกรรมของระบบปัญญาประดิษฐ์สมัยใหม่ได้</p><p>- เข้าใจแนวคิดของ Agentic AI และการทำงานร่วมกันของ Multi-Agent Systems</p><p>- ประยุกต์ใช้เทคนิค AI เพื่อแก้ปัญหาในด้านการแพทย์ ชีวมิติ การประมวลผลภาพและเสียง ความมั่นคงปลอดภัยไซเบอร์ Industrial IoT และการติดตามสิ่งแวดล้อม</p><p>- ตระหนักถึงประเด็นด้านจริยธรรม ความปลอดภัย และนโยบายในการพัฒนาและใช้งาน AI</p><p>- พัฒนาทักษะการวิเคราะห์และการประยุกต์ใช้ AI ผ่านกรณีศึกษาและโครงงานขนาดเล็ก<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1gnoX7jcfUc4yplqlHJRHWEJTgHqlzeCp/view?usp=sharing\">https://drive.google.com/file/d/1gnoX7jcfUc4yplqlHJRHWEJTgHqlzeCp/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 110 | สำรวจ AI สมัยใหม่จากพื้นฐานถึงการประยุกต์ ครอบคลุม LLM, agentic และ multi-agent รวมถึงด้านการแพทย์ ชีวมาตร สิ่งแวดล้อม พร้อมเน้นการรับรู้ เหตุผล จริยธรรม และมินิโปรเจกต์",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T01:31:35.310Z",
+            "updated_at": "2026-07-14T01:26:38.839Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "THURSDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 44
+            },
+            "course_category": [
+                "IT Security",
+                "Data science / AI",
+                "IoTs"
+            ],
+            "total_enrolled": 44,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "จุฬาลงกรณ์มหาวิทยาลัย",
+            "course_owner_id": "cm5km72dk000gn5izn2r3kqmo",
+            "id": "cmrabfffy07hgos8xse09s6i5",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Applied Mathematical Modeling",
+            "teacher_name": "อ.ดร.เจษฎา ธัชแก้วกรพินธุ์",
+            "section_no": 88,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>    </p>",
+            "short_description": "ตอนเรียนที่ 88 |   ",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T07:16:30.574Z",
+            "updated_at": "2026-07-15T01:13:27.314Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km72dk000gn5izn2r3kqmo",
+                        "company_name_th": "จุฬาลงกรณ์มหาวิทยาลัย"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "TUESDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 31
+            },
+            "course_category": [
+                "-"
+            ],
+            "total_enrolled": 31,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "จุฬาลงกรณ์มหาวิทยาลัย",
+            "course_owner_id": "cm5km72dk000gn5izn2r3kqmo",
+            "id": "cmroq8kof000t1esvtdu49o12",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "ARTIFICL INTELL II",
+            "teacher_name": "ผศ.ดร.สุกรี สินธุภิญโญ",
+            "section_no": 51,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://cugetreg.com/S/courses/2110477?term=2569%2F1\">https://cugetreg.com/S/courses/2110477?term=2569%2F1</a></p>",
+            "short_description": "การใช้คอมพิวเตอร์ในการแก้ไขปัญหา ภาษาธรรมชาติ การวินิจฉัยและการตอบปัญหาการแลเห็นภาพทำให้เกิดสัญญาณเสมือน การเรียนรู้ นิสิตต้องทำโครงการทางด้านปัญญาประดิษฐ์",
+            "additional_info": [],
+            "course_no": "2110477",
+            "reg_cu_name": "ARTIFICL INTELL II",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-17T09:19:51.471Z",
+            "updated_at": "2026-07-17T09:23:39.344Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km72dk000gn5izn2r3kqmo",
+                        "company_name_th": "จุฬาลงกรณ์มหาวิทยาลัย"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "FRIDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "ENG3 421"
+            ],
+            "_count": {
+                "course_rankings": 50
+            },
+            "course_category": [
+                "Data science / AI"
+            ],
+            "total_enrolled": 50,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "บริษัท เดอะมั๊งค์สตูดิโอ จำกัด",
+            "course_owner_id": "cm5km7c2g002mn5iz2krku9k9",
+            "id": "cmra9x5y007fvos8x6ptai5tz",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Basic 3D animation ",
+            "teacher_name": "คุณปริญญา ปองเสงี่ยม",
+            "section_no": 106,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการเรียนรู้พื้นฐานการผลิตงานแอนิเมชัน 3 มิติ โดยศึกษากระบวนการทำงาน (Workflow) ของอุตสาหกรรมแอนิเมชันตั้งแต่การออกแบบจนถึงการผลิตผลงาน เข้าใจบทบาทของแต่ละฝ่ายในกระบวนการผลิต เน้นการสร้างแอนิเมชันเพื่อการเล่าเรื่องผ่านตัวละคร พร้อมฝึกปฏิบัติการใช้โปรแกรม <strong>Autodesk Maya</strong> ซึ่งเป็นซอฟต์แวร์มาตรฐานสำหรับการผลิตงานแอนิเมชัน 3 มิติ<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- เข้าใจกระบวนการผลิตงานแอนิเมชัน 3 มิติและ Workflow ของอุตสาหกรรม</p><p>- มีความรู้พื้นฐานที่จำเป็นสำหรับการผลิตแอนิเมชัน</p><p>- สามารถใช้โปรแกรม <strong>Autodesk Maya</strong> เพื่อสร้างงานแอนิเมชันเบื้องต้นได้</p><p>- สามารถพัฒนาแนวคิด (Concept) และเนื้อเรื่องสำหรับงานแอนิเมชันได้</p><p>- มีทักษะพื้นฐานในการผลิตผลงานแอนิเมชัน 3 มิติเพื่อนำไปต่อยอดในระดับที่สูงขึ้น</p><p><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1QIJHHh36g3SSeyTKueeTwe7Nx1zZtS8e/view?usp=sharing\">https://drive.google.com/file/d/1QIJHHh36g3SSeyTKueeTwe7Nx1zZtS8e/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียน 106 | ปูพื้นฐานการสร้างอนิเมชัน 3 มิติ เรียนรู้ Workflow การผลิตตั้งแต่การออกแบบจนถึงผลงานสำเร็จ เน้นสร้างตัวละครและใช้โปรแกรม Maya เป็นเครื่องมือหลัก",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 30,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T06:34:18.840Z",
+            "updated_at": "2026-07-16T01:18:07.597Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km7c2g002mn5iz2krku9k9",
+                        "company_name_th": "บริษัท เดอะมั๊งค์สตูดิโอ จำกัด"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "THURSDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 20
+            },
+            "course_category": [
+                "Computer Graphics/UX ",
+                "Games",
+                "Software"
+            ],
+            "total_enrolled": 20,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmr4bp4fh076dos8xamahos6q",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Being Human in the Age of AI",
+            "teacher_name": "คุณณัฐพล ทองอู๋",
+            "section_no": 113,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📘 <strong><u>เนื้อหารายวิชาโดยละเอียด</u></strong> <br>รายวิชานี้เน้นประสบการณ์การเรียนรู้ความเป็นมนุษย์และความสัมพันธ์ของมนุษย์กับเทคโนโลยีปัญญาประดิษฐ์ผ่านมิติของความคิด จิตใจ และจริยธรรม นิสิตจะได้เรียนรู้ผ่านกระบวนการการตระหนักรู้ตนเองและผู้อื่น (Self&amp;Inner Understanding)และการออกแบบอย่างมีความรับผิดชอบ (Reponsible Design) และความมุ่งหวังว่าเมื่อเราเข้าใจตัวเองในฐานะมนุษย์ จริยธรรม และคุณสมบัติที่ดีอื่นๆจะเกิดขึ้นมาในตัวผู้เรียนและสามรถประยุกต์ใช้ได้ในด้านเทคโนโลยี รายวิชานี้ออกแบบให้เป็นการเดินทางการเรียนรู้ 3 ช่วง เริ่มจากการเข้าใจมิติของมนุษย์ ทั้งในระบบโครงสร้าง สังคม และตัวตนในเชิงปัจเจกเข้าสู่ตัวตนภายใน การขยายกรอบการคิดและมองโลกและประยุกต์ออกแบบอย่างมีจริยธรรม เพื่อให้เทคโนโลยีไม่เพียงทำงานได้ดีขึ้น แต่ยังมีความหมายต่อชีวิตมนุษย์<br><br><mark data-color=\"var(--tt-color-highlight-red)\" style=\"background-color: var(--tt-color-highlight-red); color: inherit\">เรียน : 1-8 Week (เริ่มวันที่ 3 สิงหาคม - 28 กันยายน โดยประมาณ )</mark></p><p><br>📚 <strong><u>วิธีจัดการเรียนการสอน</u></strong></p><p><strong>สื่อการสอน</strong> : การบรรยายและการเรียรู้ผ่านประสบการณ์ กิจกรรมในห้องเรียน</p><p></p><p>📊 <strong><u>การวัดผล</u></strong></p><ul><li><p>- การเข้าห้องเรียนและความร่วมมือในการเรียนและการเข้าร่วมความท้าทาย 70%<br>- การทำโปรเจ็คต์ 30%</p></li></ul><p><br>Course syllabus 🔗: <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1-1g2P_SEQbE9w-W-MvOXPPMvzoFpEO_V/view?usp=sharing\">https://drive.google.com/file/d/1-1g2P_SEQbE9w-W-MvOXPPMvzoFpEO_V/view?usp=sharing</a></p><p></p><p></p>",
+            "short_description": "ตอนเรียนที่ 113 | รายวิชานี้เน้นการเรียนรู้ความเป็นมนุษย์และความสัมพันธ์กับ AI ผ่านการตระหนักรู้ตนเอง การออกแบบอย่างรับผิดชอบ และการประยุกต์จริยธรรมในเทคโนโลยีเพื่อชีวิตที่มีความหมาย",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-03T02:37:25.805Z",
+            "updated_at": "2026-07-17T04:00:32.612Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "MONDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FIRST_HALF"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 60
+            },
+            "course_category": [
+                "ESG",
+                "Data science / AI"
+            ],
+            "total_enrolled": 60,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmracft7o07i7os8xfqzqf472",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Build an AI Agent From Scratch. Then Make It Run Without You.",
+            "teacher_name": "คุณอรรถพงศ์ ลิมศุภนาค",
+            "section_no": 127,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการออกแบบและพัฒนา <strong>AI Agent</strong> ตั้งแต่พื้นฐานจนถึงการประยุกต์ใช้งานจริง โดยศึกษาแนวคิดของ Generative AI และ Agentic AI การเชื่อมต่อกับ Large Language Models (LLMs) การจัดการ Context และ Memory การใช้เครื่องมือ (Tool Use) การพัฒนา Agent Loop และการประยุกต์ใช้ Retrieval-Augmented Generation (RAG) และ Model Context Protocol (MCP) พร้อมเรียนรู้การประเมินผล ความปลอดภัย การติดตามการทำงาน และการดูแลระบบ AI สำหรับการใช้งานในระดับ Production<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- เข้าใจหลักการทำงานของ AI Agent และ Agentic AI</p><p>- สามารถพัฒนา AI Agent และเชื่อมต่อกับ LLM API ได้</p><p>- ออกแบบและจัดการ Context, Memory และ Prompt ได้อย่างเหมาะสม</p><p>- ประยุกต์ใช้ RAG, MCP และเครื่องมือต่าง ๆ ในการพัฒนาระบบ AI</p><p>- เรียนรู้การประเมินผล (Evaluation) การกำหนด Guardrails และการติดตามการทำงานของระบบ (Observability)</p><p>- สามารถพัฒนา ทดสอบ และดูแล AI Agent สำหรับการใช้งานจริง<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1Q2FVTzSARTlD1EwoRYO-wo2M-lLnLfDY/view?usp=sharing\">https://drive.google.com/file/d/1Q2FVTzSARTlD1EwoRYO-wo2M-lLnLfDY/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 127 | ศึกษา Generative AI และ AI Agent การเรียกใช้ LLM API การจัดการ Context การใช้ RAG/MCP การประเมินและความปลอดภัยของ AI รวมถึงการพัฒนาและดูแลระบบ AI สำหรับการใช้งานจริง",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T07:44:48.036Z",
+            "updated_at": "2026-07-08T04:09:46.448Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "TUESDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 56
+            },
+            "course_category": [
+                "Data science / AI",
+                "Software",
+                "Cloud / System"
+            ],
+            "total_enrolled": 56,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "บริษัท เอซิส โปรเฟสชั่นนัล เซ็นเตอร์ จำกัด",
+            "course_owner_id": "cm5km7d3g002un5izdgyovins",
+            "id": "cmra0ls2i07e2os8xf2ty538d",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Cyber Security Certified in Cybersecurity (CC)",
+            "teacher_name": "คุณปริญญา หอมเอนก",
+            "section_no": 63,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>  </p>",
+            "short_description": "ตอนเรียนที่ 63 | CC ของ ISC2 ยืนยันพื้นฐานไซเบอร์ ครอบคลุม CIA การพิสูจน์ตัวตน การตอบสนองเหตุการณ์ BCM/DR การควบคุมการเข้าถึง ความปลอดภัยเครือข่าย ภัยคุกคาม และการปฏิบัติงานด้านความปลอดภัย",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T02:13:31.098Z",
+            "updated_at": "2026-07-14T01:51:31.364Z",
+            "quota_type": [
+                "YEAR_THREE",
+                "YEAR_FOURTH"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km7d3g002un5izdgyovins",
+                        "company_name_th": "บริษัท เอซิส โปรเฟสชั่นนัล เซ็นเตอร์ จำกัด"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "TUESDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                },
+                {
+                    "day": "SATURDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 10
+            },
+            "course_category": [
+                "IT Security",
+                "IT Certificate",
+                "Cloud / System"
+            ],
+            "total_enrolled": 10,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "บริษัท บี.กริม เพาเวอร์ จำกัด (มหาชน)",
+            "course_owner_id": "cmcwdq14c00002ez7z56wjh6d",
+            "id": "cmrlectlj001c1o69kb0iala9",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Digital Infrastructure & Sustainable Energy Systems",
+            "teacher_name": "คุณเกลวลี พรมจันทร์",
+            "section_no": 128,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "ENGLISH",
+            "description": "<p>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://docs.google.com/document/d/1ExkR7IvGMmj4yPvMYcpzyPLauBmitIQC/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true\">https://docs.google.com/document/d/1ExkR7IvGMmj4yPvMYcpzyPLauBmitIQC/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true</a></p>",
+            "short_description": "ตอนเรียนที่ 128 | Introduces digital infrastructure and sustainable energy systems, focusing on data centers, cloud, AI, cybersecurity, and hands-on engineering through industry projects.",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-15T01:23:55.733Z",
+            "updated_at": "2026-07-17T07:41:31.922Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cmcwdq14c00002ez7z56wjh6d",
+                        "company_name_th": "บริษัท บี.กริม เพาเวอร์ จำกัด (มหาชน)"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "SUNDAY",
+                    "start_time": "1970-01-01T17:00:00.000Z",
+                    "end_time": "1970-01-01T17:01:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 14
+            },
+            "course_category": [
+                "Cloud/system"
+            ],
+            "total_enrolled": 14,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmr488wqn075jos8xf3qzl8yj",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Enterprise Architecture",
+            "teacher_name": "คุณรัชดา นุตจรัส",
+            "section_no": 117,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/19QCV3T05v3Ii16tViLZTw_rS32x2fm27/view?usp=sharing\">https://drive.google.com/file/d/19QCV3T05v3Ii16tViLZTw_rS32x2fm27/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 117 | Enterprise Architecture (EA) ออกแบบกรอบองค์กรด้านธุรกิจ ข้อมูล แอปฯ และเทคโนโลยี ใช้ TOGAF ADM วิเคราะห์สถานะ วางแผน ออกแบบ gap analysis และสื่อสารวิสัยทัศน์✅",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-03T01:00:50.495Z",
+            "updated_at": "2026-07-19T05:55:26.264Z",
+            "quota_type": [
+                "YEAR_THREE",
+                "YEAR_FOURTH"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "SATURDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 15
+            },
+            "course_category": [
+                "Project Management",
+                "Cloud / System"
+            ],
+            "total_enrolled": 15,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "จุฬาลงกรณ์มหาวิทยาลัย",
+            "course_owner_id": "cm5km72dk000gn5izn2r3kqmo",
+            "id": "cmropx2od000f1esvle3ixzvs",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "FLT TOLERANT COMP",
+            "teacher_name": "ผศ.ดร.อาทิตย์ ทองทักษ์",
+            "section_no": 51,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://cugetreg.com/S/courses/2110473?term=2567%2F1\">https://cugetreg.com/S/courses/2110473?term=2567%2F1</a></p>",
+            "short_description": "ศึกษาการทดสอบวงจรดิจิทัล ครอบคลุมการสร้างชุดทดสอบวงจรคอมบิเนชันและซีเควนเชียล การจำลองวงจร การตรวจจับและแก้ไขข้อผิดพลาด รวมถึงการออกแบบวงจรเพื่อรองรับการทดสอบ",
+            "additional_info": [],
+            "course_no": "2110473",
+            "reg_cu_name": "FLT TOLERANT COMP",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-17T09:10:54.925Z",
+            "updated_at": "2026-07-17T09:23:48.043Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km72dk000gn5izn2r3kqmo",
+                        "company_name_th": "จุฬาลงกรณ์มหาวิทยาลัย"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "MONDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "ENG3 421"
+            ],
+            "_count": {
+                "course_rankings": 33
+            },
+            "course_category": [
+                "Cloud / System"
+            ],
+            "total_enrolled": 33,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmrabalbq07h6os8x1gvxys1f",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Game Imdustry and  Business Fundamentals",
+            "teacher_name": " คุณคเชนท์ พุทธิวราวุธ",
+            "section_no": 125,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>       รายวิชานี้ศึกษาโครงสร้างอุตสาหกรรมเกมทั้งในประเทศไทยและระดับนานาชาติ ครอบคลุมบทบาทและเส้นทางอาชีพในอุตสาหกรรม กระบวนการออกแบบ พัฒนา ผลิต และวางจำหน่ายเกมเชิงพาณิชย์ รวมถึงการบริหารโครงการ การวางแผนการผลิต รูปแบบการสร้างรายได้ ค่าลิขสิทธิ์ การจัดจำหน่าย และการวิเคราะห์กรณีศึกษาจากธุรกิจเกมทั้งในและต่างประเทศ เพื่อให้ผู้เรียนเข้าใจการดำเนินธุรกิจเกมตั้งแต่ต้นจนจบ</p><p style=\"text-align: justify\"><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- เข้าใจโครงสร้างและภาพรวมของอุตสาหกรรมเกมในประเทศไทยและระดับนานาชาติ</p><p>- เข้าใจกระบวนการออกแบบ พัฒนา และผลิตเกมเชิงพาณิชย์</p><p>- มีความรู้ด้านการบริหารโครงการและการวางแผนการผลิตเกม</p><p>- เข้าใจรูปแบบธุรกิจเกม การสร้างรายได้ ค่าลิขสิทธิ์ และการจัดจำหน่าย</p><p>- สามารถวิเคราะห์กรณีศึกษาทางธุรกิจและจัดทำแผนการผลิตเกมเพื่อนำเสนอและประยุกต์ใช้ได้<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://docs.google.com/document/d/1coi39gNUgxqtdwD7rjoNM1OaSUhcRH8C/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true\">https://docs.google.com/document/d/1coi39gNUgxqtdwD7rjoNM1OaSUhcRH8C/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true</a></p>",
+            "short_description": "ตอนเรียนที่ 125 | ศึกษาอุตสาหกรรมเกมตั้งแต่โครงสร้าง งานในสายอาชีพ กระบวนการพัฒนาและผลิตเกม การบริหารโครงการ ธุรกิจเกม ลิขสิทธิ์ การจัดจำหน่าย และวิเคราะห์รายได้จากกรณีศึกษาในและต่างประเทศ",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T07:12:44.918Z",
+            "updated_at": "2026-07-19T06:08:12.292Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "THURSDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 64
+            },
+            "course_category": [
+                "Project Management",
+                "Startup",
+                "Games"
+            ],
+            "total_enrolled": 64,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "SEA Bridge",
+            "course_owner_id": "cmcx6n2dw0000twq8pyh5n6t4",
+            "id": "cmra44ogn07f2os8x4px6ak1a",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Global Venture Playbook Part 1  Bridge-to-Venture",
+            "teacher_name": "คุณธนกฤษณ์​ เสริมสุขสัน",
+            "section_no": 67,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>   </p>",
+            "short_description": "ตอนเรียนที่ 67 | รายวิชานี้เน้นพัฒนาศักยภาพผู้นำธุรกิจระดับโลก ด้วย FISH Capital และ SWOT เพื่อขยาย SME ท้องถิ่นสู่ต่างประเทศ ผ่านทฤษฎี กรณีศึกษา และภาคสนามในบริบทอาเซียน",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T03:52:11.735Z",
+            "updated_at": "2026-07-07T08:06:13.887Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cmcx6n2dw0000twq8pyh5n6t4",
+                        "company_name_th": "SEA Bridge"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "TUESDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 0
+            },
+            "course_category": [
+                "Project Management",
+                "Startup"
+            ],
+            "total_enrolled": 0,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "SEA Bridge",
+            "course_owner_id": "cmcx6n2dw0000twq8pyh5n6t4",
+            "id": "cmra9h87e07fcos8x6gxqxrb3",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Global Venture Sprint Part 2  Bridge-to-Venture",
+            "teacher_name": "คุณธนกฤษณ์​ เสริมสุขสัน",
+            "section_no": 101,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>  </p>",
+            "short_description": "ตอนเรียนที่ 101 | สอนการสร้างธุรกิจดิจิทัลและสตาร์ทอัพครบกระบวนการ ภายใน 8 สัปดาห์ ตั้งแต่หาไอเดีย วิเคราะห์ปัญหา สร้าง MVP ด้วย No-Code และ Agile โดยไม่จำเป็นต้องมีพื้นฐานการเขียนโปรแกรม",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T06:21:55.274Z",
+            "updated_at": "2026-07-07T07:56:37.596Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cmcx6n2dw0000twq8pyh5n6t4",
+                        "company_name_th": "SEA Bridge"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "TUESDAY",
+                    "start_time": "1970-01-01T09:00:00.000Z",
+                    "end_time": "1970-01-01T11:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 5
+            },
+            "course_category": [
+                "Project Management",
+                "Startup"
+            ],
+            "total_enrolled": 5,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "จุฬาลงกรณ์มหาวิทยาลัย",
+            "course_owner_id": "cm5km72dk000gn5izn2r3kqmo",
+            "id": "cmrollia900ojpofjy2o5lhpi",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Hardware Design and Implementation",
+            "teacher_name": "ศ.ดร.ประภาส จงสถิตย์วัฒนา",
+            "section_no": 89,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>  </p>",
+            "short_description": "  ",
+            "additional_info": [],
+            "course_no": null,
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-17T07:09:56.817Z",
+            "updated_at": "2026-07-17T07:09:56.817Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km72dk000gn5izn2r3kqmo",
+                        "company_name_th": "จุฬาลงกรณ์มหาวิทยาลัย"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "SUNDAY",
+                    "start_time": "1970-01-01T17:00:00.000Z",
+                    "end_time": "1970-01-01T17:01:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 13
+            },
+            "course_category": [
+                "-"
+            ],
+            "total_enrolled": 13,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "บริษัท หัวเว่ย เทคโนโลยี่ (ประเทศไทย) จำกัด",
+            "course_owner_id": "cm5km7sjd006an5izfuppb2ci",
+            "id": "cmrack6td07ipos8xmutlumc2",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "HCCDA - Tech Essentials (Huawei Certified ICT Associate - Data Center and Cloud Architecture)",
+            "teacher_name": "คุณวิชาดา ชัยประเสริฐสุด",
+            "section_no": 59,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้แนะนำพื้นฐานด้าน Cloud Computing และการพัฒนาแอปพลิเคชันบน Huawei Cloud ครอบคลุมบริการหลัก เช่น Compute, Network, Storage, Database และ Security พร้อมฝึกปฏิบัติผ่าน Huawei Koolabs และพัฒนาโครงงานบน Cloud ผู้เรียนจะได้รับทักษะในการใช้งาน Huawei Cloud และเตรียมความพร้อมสำหรับการสอบ HCCDA เพื่อรับ Huawei Certification และใบคุณวุฒิวิชาชีพจาก TPQI<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- ความรู้พื้นฐานด้าน Cloud Computing</p><p style=\"text-align: justify\">- ทักษะการใช้งาน Huawei Cloud</p><p style=\"text-align: justify\">- ประสบการณ์จากการฝึกปฏิบัติจริง</p><p style=\"text-align: justify\">- ความพร้อมสำหรับการสอบ HCCDA<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/184MIkjbQFcU-R9OCZc7B5Gt_tbcD_DYO/view?usp=sharing\">https://drive.google.com/file/d/184MIkjbQFcU-R9OCZc7B5Gt_tbcD_DYO/view?usp=sharing</a><br><br></p>",
+            "short_description": "ตอนเรียนที่ 59 | หลักสูตรพื้นฐานด้าน Cloud Computing และการพัฒนาแอปบน Huawei Cloud เรียนรู้บริการหลัก ฝึกปฏิบัติจริง เตรียมสอบ HCCDA พร้อมพัฒนาโปรเจกต์และรับใบรับรองเมื่อสอบผ่าน",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T07:48:12.289Z",
+            "updated_at": "2026-07-08T03:29:43.586Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km7sjd006an5izfuppb2ci",
+                        "company_name_th": "บริษัท หัวเว่ย เทคโนโลยี่ (ประเทศไทย) จำกัด"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "TUESDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 48
+            },
+            "course_category": [
+                "IT Certificate",
+                "Cloud / System"
+            ],
+            "total_enrolled": 48,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "PTT Global Chemical",
+            "course_owner_id": "cm5km7f25003an5iz040999zm",
+            "id": "cmrabviuo07hxos8xsqxb9dib",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "How we implement projects in a large enterprise",
+            "teacher_name": "คุณจิระวัฒน์ ผดุงดิจจานนท์",
+            "section_no": 105,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p>     </p>",
+            "short_description": "ตอนเรียนที่ 105 | วิชานี้สอนการพัฒนาแพลตฟอร์ม Generative AI ภายในองค์กร ตั้งแต่วางแผน พัฒนา เปิดใช้งาน และบริหารโครงการ โดยคำนึงถึงผู้ใช้ งบประมาณ และการสนับสนุนจากผู้บริหาร",
+            "additional_info": [],
+            "course_no": null,
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T07:29:01.488Z",
+            "updated_at": "2026-07-07T07:29:01.488Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km7f25003an5iz040999zm",
+                        "company_name_th": "PTT Global Chemical"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "MONDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 39
+            },
+            "course_category": [
+                "Project Management",
+                "Data science / AI",
+                "Software"
+            ],
+            "total_enrolled": 39,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "บริษัท รีเลิร์น โซลูชั่น จำกัด",
+            "course_owner_id": "cmcwdq56k00162ez7woth3css",
+            "id": "cmra9qnot07flos8xfu0gyvf9",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Lean LaunchPad",
+            "teacher_name": "คุณกฤษฎา เฉลิมสุข",
+            "section_no": 102,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>ายวิชานี้มุ่งเน้นการเรียนรู้เชิงปฏิบัติ (Hands-on Learning) ในการสร้างธุรกิจจริง โดยเน้นกระบวนการค้นหาและพัฒนาโมเดลธุรกิจ (Business Model Search) มากกว่าการจัดทำแผนธุรกิจแบบดั้งเดิม ผู้เรียนจะได้เรียนรู้การใช้ Business Model Canvas และ Customer Development เพื่อทำความเข้าใจความต้องการของลูกค้า ทดสอบสมมติฐานทางธุรกิจ พัฒนาผลิตภัณฑ์ต้นแบบ (MVP) ด้วยแนวคิด Agile และเรียนรู้การปรับเปลี่ยนทิศทางธุรกิจ (Pivot) จากข้อมูลและข้อเสนอแนะที่ได้รับจากตลาด<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- ความเข้าใจเกี่ยวกับกระบวนการสร้างธุรกิจสมัยใหม่</p><p>- ทักษะการออกแบบและวิเคราะห์โมเดลธุรกิจด้วย Business Model Canvas</p><p>- ประสบการณ์สัมภาษณ์ลูกค้าและทดสอบสมมติฐานกับผู้ใช้งานจริง</p><p>- ทักษะการสร้าง MVP และพัฒนาผลิตภัณฑ์ตามแนวคิด Agile</p><p>- ความสามารถในการวิเคราะห์ข้อมูลและตัดสินใจปรับเปลี่ยนโมเดลธุรกิจจากข้อมูลเชิงประจักษ์<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/18QtVUW48jsiQVykDCUQ_PdcyTHke8Zv9/view?usp=sharing\">https://drive.google.com/file/d/18QtVUW48jsiQVykDCUQ_PdcyTHke8Zv9/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 102 | เรียนรู้การสร้างธุรกิจจริงผ่านการค้นหาโมเดลธุรกิจ สัมภาษณ์ลูกค้า ทดสอบสมมติฐาน พัฒนา MVP และปรับธุรกิจตามข้อมูลจากตลาดด้วยแนวคิด Agile",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T06:29:15.245Z",
+            "updated_at": "2026-07-08T04:42:13.413Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cmcwdq56k00162ez7woth3css",
+                        "company_name_th": "บริษัท รีเลิร์น โซลูชั่น จำกัด"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "MONDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 6
+            },
+            "course_category": [
+                "Project Management",
+                "Startup"
+            ],
+            "total_enrolled": 6,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmraa6ymx07g5os8xoiz69k7e",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": " Robotics Simulation",
+            "teacher_name": "คุณปัณณธร บงกชอำพน",
+            "section_no": 120,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้ศึกษาพื้นฐานด้านวิทยาการหุ่นยนต์ ครอบคลุมกายวิภาคของหุ่นยนต์ คณิตศาสตร์เชิงปริภูมิ จลนศาสตร์ไปข้างหน้าและจลนศาสตร์ผกผัน การรับรู้ด้วยเซนเซอร์ การควบคุมแบบป้อนกลับและการปรับจูน PID การนำทางเบื้องต้น และการเขียนโปรแกรมควบคุมหุ่นยนต์ด้วย State Machine เพื่อพัฒนาทักษะการออกแบบและควบคุมระบบหุ่นยนต์สำหรับการประยุกต์ใช้งานจริง<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- เข้าใจโครงสร้างและองค์ประกอบของหุ่นยนต์แขนกลและหุ่นยนต์เคลื่อนที่</p><p>- สามารถประยุกต์ใช้คณิตศาสตร์และเมทริกซ์การแปลงในการคำนวณตำแหน่งและการเคลื่อนที่ของหุ่นยนต์</p><p>- วิเคราะห์และแก้ปัญหาจลนศาสตร์ไปข้างหน้าและจลนศาสตร์ผกผันของแขนกล</p><p>- เลือกใช้เซนเซอร์และออกแบบระบบรับรู้ให้เหมาะสมกับงาน</p><p>- ออกแบบและปรับจูนตัวควบคุม PID สำหรับควบคุมการเคลื่อนที่ของหุ่นยนต์</p><p>- พัฒนาระบบนำทางและเขียนโปรแกรมควบคุมหุ่นยนต์ด้วย State Machine</p><p style=\"text-align: left\"><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1G0YIbgITmBXuHx-_RhVcrl9z3p6mukZy/view?usp=sharing\">https://drive.google.com/file/d/1G0YIbgITmBXuHx-_RhVcrl9z3p6mukZy/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 120 | รายวิชาศึกษาการจำลองหุ่นยนต์ฮิวแมนนอยด์ ฝึก AI ด้วย Reinforcement Learning ออกแบบสภาพแวดล้อมและระบบควบคุม พร้อมพัฒนาโครงงานหุ่นยนต์ในโลกเสมือน",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 15,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T06:41:55.928Z",
+            "updated_at": "2026-07-15T01:15:16.252Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "SATURDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 18
+            },
+            "course_category": [
+                "Computer Graphics/UX ",
+                "Data science / AI",
+                "Robotics"
+            ],
+            "total_enrolled": 18,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "จุฬาลงกรณ์มหาวิทยาลัย",
+            "course_owner_id": "cm5km72dk000gn5izn2r3kqmo",
+            "id": "cmraatfgg07gwos8x2u159g0m",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "SE for ML SYS",
+            "teacher_name": "รศ.ดร.พิตติพล คันธวัฒน์",
+            "section_no": 51,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p> <strong>💻 Software Engineering for Machine Learning (SE for ML SYS)</strong></p><p>การนำโมเดล Machine Learning ไปใช้งานจริง (Deployment) จำเป็นต้องอาศัยหลักการทางวิศวกรรมซอฟต์แวร์ขั้นสูงเพื่อให้ระบบทำงานได้อย่างเสถียร มีประสิทธิภาพ และดูแลรักษาง่าย (Maintanability) โดยมีองค์ประกอบสำคัญดังนี้:</p><ul><li><p><strong>- Software Design for ML:</strong> การออกแบบโครงสร้างซอฟต์แวร์ให้รองรับการเทรนนิ่งและการอนุมาน (Inference) ของโมเดล ML อย่างเป็นระบบ</p></li><li><p><strong>- MLOps &amp; Pipeline:</strong> การสร้างกระบวนการอัตโนมัติ ตั้งแต่การเตรียมข้อมูล (Data Pipeline), การฝึกสอนโมเดล (Training), ไปจนถึงการทดสอบและประเมินผล (Evaluation &amp; CI/CD for ML)</p></li><li><p><strong>- System Scalability &amp; Monitoring:</strong> การจัดการระบบโครงสร้างพื้นฐานให้รองรับปริมาณข้อมูลมหาศาล และการมอนิเตอร์ประสิทธิภาพของโมเดลเมื่อนำไปใช้งานจริงเพื่อป้องกันปัญหา เช่น Data Drift หรือ Model Decay</p></li></ul>",
+            "short_description": "รายวิชา 2110555 ตอนเรียนที่ 51 | การนำโมเดล Machine Learning ไปใช้งานจริง โดยใช้หลักวิศวกรรมซอฟต์แวร์ เพื่อให้ระบบมีความเสถียร ประสิทธิภาพสูง และบำรุงรักษาได้ง่าย",
+            "additional_info": [],
+            "course_no": "2110555",
+            "reg_cu_name": "SE for ML SYS",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T06:59:24.160Z",
+            "updated_at": "2026-07-19T05:52:35.853Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km72dk000gn5izn2r3kqmo",
+                        "company_name_th": "จุฬาลงกรณ์มหาวิทยาลัย"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "FRIDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 88
+            },
+            "course_category": [
+                "Data science / AI",
+                "Software",
+                "Cloud / System"
+            ],
+            "total_enrolled": 88,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "บริษัท เพลย์ทอเรียม โซลูชันส์ จำกัด",
+            "course_owner_id": "cm5km79tr0024n5izh81bzrj3",
+            "id": "cmr4dk1eu076pos8xa8nkx0w3",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "System Design for Software Development",
+            "teacher_name": "คุณประสิทธิ์ สุทธิกมลสกุล",
+            "section_no": 54,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการออกแบบระบบซอฟต์แวร์ขนาดใหญ่ โดยศึกษาหลักการและองค์ประกอบของการออกแบบระบบ แบบจำลองข้อมูล การจัดเก็บและการเรียกค้นข้อมูล แนวคิดของระบบแบบกระจาย (Distributed Systems) สถาปัตยกรรมไมโครเซอร์วิส (Microservices) และสถาปัตยกรรมระบบคลาวด์ (Cloud Architecture) พร้อมเรียนรู้ผ่านกรณีศึกษาจากระบบจริง เพื่อพัฒนาทักษะการออกแบบระบบที่มีประสิทธิภาพ รองรับการขยายตัว และมีความน่าเชื่อถือ<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- ความเข้าใจหลักการออกแบบระบบแบบกระจายขนาดใหญ่ (Large-scale Distributed Systems)</p><p>- ทักษะในการออกแบบระบบที่รองรับ Scalability, Reliability และ Maintainability</p><p>- ความสามารถในการเลือกใช้สถาปัตยกรรมและเทคโนโลยีที่เหมาะสมกับลักษณะของระบบ</p><p>- ทักษะในการวิเคราะห์และประเมินข้อดี ข้อจำกัด และแนวทางปรับปรุงการออกแบบระบบจากกรณีศึกษาจริง<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://docs.google.com/document/d/1uq_ZZcDez_HeYz9GTjozr7kAzMQiWql7/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true\">https://docs.google.com/document/d/1uq_ZZcDez_HeYz9GTjozr7kAzMQiWql7/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true</a><br></p>",
+            "short_description": "ตอนเรียนที่ 54 | หลักการออกแบบระบบ ครอบคลุมถึง แบบจำลองข้อมูล การจัดเก็บและเรียกค้นข้อมูล ระบบกระจาย และ สถาปัตยกรรม ต่างๆ เช่น ไมโครเซอร์วิสและคลาวด์ พร้อมกรณีศึกษา",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-03T03:29:27.846Z",
+            "updated_at": "2026-07-15T01:12:07.032Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm5km79tr0024n5izh81bzrj3",
+                        "company_name_th": "บริษัท เพลย์ทอเรียม โซลูชันส์ จำกัด"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "TUESDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FIRST_HALF"
+                },
+                {
+                    "day": "FRIDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FIRST_HALF"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 25
+            },
+            "course_category": [
+                "Cloud/system",
+                "Software"
+            ],
+            "total_enrolled": 25,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmraacq0b07gfos8xv94y1wai",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "Technopreneurship and Innovation Design",
+            "teacher_name": "คุณตรีกาล เมฆบริบูรณ์",
+            "section_no": 124,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งพัฒนาทักษะการเป็นผู้ประกอบการเทคโนโลยี (Technopreneurship) ผ่านการเรียนรู้เชิงปฏิบัติ (Action-based Learning) โดยครอบคลุมการค้นหาปัญหา การออกแบบนวัตกรรมและผลิตภัณฑ์ต้นแบบ (MVP) การพัฒนาโมเดลธุรกิจดิจิทัล การวางกลยุทธ์นำผลิตภัณฑ์สู่ตลาด (Go-to-Market) การประยุกต์ใช้ AI และ MarTech ในธุรกิจ รวมถึงการนำเสนอผลงานเพื่อระดมทุน (Pitching) เพื่อให้นิสิตสามารถพัฒนาผลิตภัณฑ์และต่อยอดสู่ธุรกิจนวัตกรรมได้จริง<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- เข้าใจแนวคิดและกระบวนการเป็นผู้ประกอบการเทคโนโลยี (Technopreneurship)</p><p>- วิเคราะห์ปัญหาและพัฒนาแนวทางแก้ไขด้วยเทคโนโลยีและนวัตกรรม</p><p>- ออกแบบและพัฒนาผลิตภัณฑ์ต้นแบบ (MVP)</p><p>- สร้างโมเดลธุรกิจและวางกลยุทธ์การนำผลิตภัณฑ์สู่ตลาด</p><p>- ประยุกต์ใช้ AI และ MarTech เพื่อสนับสนุนการพัฒนาธุรกิจ</p><p>- พัฒนาทักษะการนำเสนอและการระดมทุน (Pitching)</p><p>- มีประสบการณ์ทำงานเป็นทีมและพัฒนาโครงการธุรกิจจากสถานการณ์จริง<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1_j3xNfKP-8V09F8CTHs2msqTAAyJGL9B/view?usp=sharing\">https://drive.google.com/file/d/1_j3xNfKP-8V09F8CTHs2msqTAAyJGL9B/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 124 | ศึกษาการเป็นผู้ประกอบการเทคโนโลยี ตั้งแต่ค้นหาปัญหา พัฒนา MVP ออกแบบโมเดลธุรกิจ วางกลยุทธ์การตลาดดิจิทัล ประยุกต์ใช้ AI และฝึก Pitching เพื่อต่อยอดสู่ธุรกิจจริง",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T06:46:24.682Z",
+            "updated_at": "2026-07-08T04:38:52.083Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "FRIDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 15
+            },
+            "course_category": [
+                "Project Management",
+                "Startup",
+                "Data science / AI"
+            ],
+            "total_enrolled": 15,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "บริษัท แอตตร้าอินเตอร์กรุ๊ป จำกัด",
+            "course_owner_id": "cmcwdq5dj00182ez7e2zlbf8u",
+            "id": "cmr492y4n075tos8xyje9nigl",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "การจัดการโครงการเทคโนโลยีและนวัตกรรมสำหรับวิศวกรรมคอมพิวเตอร์ (Innovation Project Management for Computer Engineering)",
+            "teacher_name": "คุณภาณุพงศ์ ธนารักษ์วุฒิกร",
+            "section_no": 121,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการบริหารโครงการด้านเทคโนโลยีและนวัตกรรมในบริบทของวิศวกรรมคอมพิวเตอร์ ครอบคลุมหลักการบริหารโครงการ การพัฒนาซอฟต์แวร์ตามมาตรฐาน ISO/IEC 29110 การวางแผนและควบคุมโครงการด้วยเครื่องมือต่าง ๆ การบริหารต้นทุนและทรัพยากร การออกแบบโมเดลธุรกิจ การวิเคราะห์ความเป็นไปได้ของโครงการและกลยุทธ์การแข่งขัน ตลอดจนการพัฒนาทักษะการสื่อสาร การนำเสนอผลงาน (Pitching) และการพัฒนาโครงงานเทคโนโลยีที่สามารถประยุกต์ใช้ได้จริงผ่านการเรียนรู้แบบ Project-Based Learning<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- ความเข้าใจหลักการบริหารโครงการด้านเทคโนโลยีและนวัตกรรม</p><p>- ทักษะการวางแผนและควบคุมโครงการด้วยเครื่องมือ เช่น CPM และ Gantt Chart</p><p>- ความรู้ด้านการพัฒนาซอฟต์แวร์ตามมาตรฐาน ISO/IEC 29110</p><p>- ความสามารถในการวิเคราะห์ต้นทุน ทรัพยากร และความเป็นไปได้ของโครงการ</p><p>- ทักษะการออกแบบ Business Model และการวิเคราะห์กลยุทธ์ทางธุรกิจ</p><p>- ทักษะการสื่อสาร การนำเสนอผลงาน (Pitching) และการทำงานเป็นทีม</p><p>- ประสบการณ์พัฒนาโครงงานด้านเทคโนโลยีที่สามารถนำไปประยุกต์ใช้ได้จริง</p><p><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1pJHw-E4rqAxOSwF-_s2uZDxHxfA3jjd4/view?usp=sharing\">https://drive.google.com/file/d/1pJHw-E4rqAxOSwF-_s2uZDxHxfA3jjd4/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 121 | รายวิชาศึกษาการบริหารโครงการเทคโนโลยีและนวัตกรรม ครอบคลุมการจัดการโครงการ มาตรฐานพัฒนาซอฟต์แวร์ ISO/IEC 29110 การวางแผนธุรกิจ และการพัฒนาโครงงานจริง",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-03T01:24:11.975Z",
+            "updated_at": "2026-07-15T01:03:26.261Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cmcwdq5dj00182ez7e2zlbf8u",
+                        "company_name_th": "บริษัท แอตตร้าอินเตอร์กรุ๊ป จำกัด"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "MONDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 19
+            },
+            "course_category": [
+                "Project Management",
+                "Startup",
+                "Software"
+            ],
+            "total_enrolled": 19,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmr9zc1e107ddos8xoi1to2qn",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "การทดสอบและประกันคุณภาพซอฟต์แวร์เชิงปฏิบัติการ (Practical Software Testing and Quality Assurance)",
+            "teacher_name": "คุณพันทกานต์ ศรีวิชัยนท์",
+            "section_no": 119,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการศึกษาหลักการ แนวคิด และการปฏิบัติงานด้านการทดสอบและประกันคุณภาพซอฟต์แวร์ ครอบคลุมการวางแผนและออกแบบกรณีทดสอบ การดำเนินการทดสอบ การค้นหาและวิเคราะห์ข้อบกพร่อง การจัดทำรายงานผลการทดสอบ ตลอดจนการประยุกต์ใช้กระบวนการทดสอบเพื่อยกระดับคุณภาพซอฟต์แวร์ในสถานการณ์จริง<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- เข้าใจหลักการและกระบวนการทดสอบและประกันคุณภาพซอฟต์แวร์</p><p>- สามารถวางแผน ออกแบบ และดำเนินการทดสอบซอฟต์แวร์ได้อย่างถูกต้อง</p><p>- วิเคราะห์และรายงานข้อบกพร่องของระบบได้อย่างมีประสิทธิภาพ</p><p>- เข้าใจการจัดการงานทดสอบทั้งในมุมมองด้านการบริหาร ด้านเทคนิค และการฏิบัติงาน</p><p>- มีทักษะในการจัดทำเอกสารและประยุกต์ใช้กระบวนการทดสอบในโครงการฒนาซอฟต์แวร์<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/1sUwLcIJAreEpcVPXF92np8WrFEQOU2dT/view?usp=sharing\">https://drive.google.com/file/d/1sUwLcIJAreEpcVPXF92np8WrFEQOU2dT/view?usp=sharing</a></p>",
+            "short_description": "  ตอนเรียนที่ 119 | ศึกษาการทดสอบและประกันคุณภาพซอฟต์แวร์ ครอบคลุมแนวคิดคุณภาพ การวางแผนและระดับการทดสอบ การตรวจสอบ การจัดองค์กรทดสอบ การทดสอบขนาดใหญ่ และการจัดทำเอกสาร",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T01:37:57.001Z",
+            "updated_at": "2026-07-14T01:56:42.170Z",
+            "quota_type": [
+                "YEAR_THREE",
+                "YEAR_FOURTH"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "SATURDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 26
+            },
+            "course_category": [
+                "Project Management",
+                "IT Certificate",
+                "Software"
+            ],
+            "total_enrolled": 26,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmra26bru07ecos8xqs8urk6m",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "ทักษะการสื่อสารและการนำเสนอสำหรับวิศวกรรมคอมพิวเตอร์",
+            "teacher_name": "คุณศุภวัฒน์ สุขสันติสวัสดิ์ และ คุณปริญญ์ จงภักดีพงศ์",
+            "section_no": 123,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการพัฒนาทักษะด้านการสื่อสารและการนำเสนออย่างมืออาชีพ เพื่อให้ผู้เรียนสามารถถ่ายทอดแนวคิด ข้อมูล และองค์ความรู้ได้อย่างมีประสิทธิภาพ โดยเฉพาะหัวข้อที่เกี่ยวข้องกับสายงานวิศวกรรมคอมพิวเตอร์ ผู้เรียนจะได้เรียนรู้การจัดลำดับความคิด การสร้างโครงสร้างเรื่องราว การเลือกวิธีการสื่อสารให้เหมาะสมกับกลุ่มผู้ฟัง และการนำเสนอข้อมูลที่ซับซ้อนให้เข้าใจได้ง่าย นอกจากนี้ รายวิชายังครอบคลุมเทคนิคการพัฒนาสื่อสำหรับการนำเสนอ การพูดในที่สาธารณะ การนำเสนอเพื่อความก้าวหน้าทางวิชาชีพ การสัมภาษณ์งาน และการสื่อสารร่วมกับผู้อื่นในบริบทการทำงานจริง เพื่อเสริมสร้างความมั่นใจ บุคลิกภาพ และทักษะการสื่อสารที่จำเป็นต่อโลกการทำงานยุคใหม่<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- เข้าใจหลักการพื้นฐานของการสื่อสารและการนำเสนอในรูปแบบต่าง ๆ</p><p>-  สามารถออกแบบและพัฒนาสื่อประกอบการนำเสนอได้อย่างเหมาะสมและมีประสิทธิภาพ</p><p>- สามารถถ่ายทอดแนวคิดหรือหัวข้อที่มีความซับซ้อนให้เหมาะสมกับกลุ่มผู้รับสารที่แตกต่างกัน</p><p>- พัฒนาทักษะการพูด การนำเสนอ และการสื่อสารเพื่อการทำงานอย่างมืออาชีพ<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://docs.google.com/document/d/1H4HMFsQpZ0de-ejj09EZVyTmM72OYUAl/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true\">https://docs.google.com/document/d/1H4HMFsQpZ0de-ejj09EZVyTmM72OYUAl/edit?usp=sharing&amp;ouid=109819340084756327590&amp;rtpof=true&amp;sd=true</a></p>",
+            "short_description": "ตอนเรียนที่ 123| พัฒนาทักษะการสื่อสารและการนำเสนออย่างมืออาชีพสำหรับสายวิศวกรรมคอมพิวเตอร์ ครอบคลุมการเล่าเรื่อง การสร้างสื่อ การพูดต่อสาธารณะ และการสื่อสารในงานจริง",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T02:57:29.369Z",
+            "updated_at": "2026-07-08T07:11:54.076Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "FRIDAY",
+                    "start_time": "1970-01-01T06:00:00.000Z",
+                    "end_time": "1970-01-01T09:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 34
+            },
+            "course_category": [
+                "Project Management",
+                "Startup"
+            ],
+            "total_enrolled": 34,
+            "is_interested": false,
+            "ranking_id": null
+        },
+        {
+            "course_owner": "ไม่ระบุ",
+            "course_owner_id": "cm7t3uecw0000o3rga1l0jodn",
+            "id": "cmrabohzg07hoos8x7ncnbz3j",
+            "round_id": "cmr0f94gs074eos8xgtg7f328",
+            "name": "เทคโนโลยีการตลาดสําหรับผู้นํายุคดิจิทัล (Marketing Technology for Next-Generation)",
+            "teacher_name": "คุณวรรณเพ็ญ แซ่เปี้ยน",
+            "section_no": 126,
+            "manager_name": null,
+            "manager_email": null,
+            "weight": 3,
+            "class_language": "THAI",
+            "description": "<p style=\"text-align: justify\">📖 <strong>รายละเอียดรายวิชา</strong><br>รายวิชานี้มุ่งเน้นการเรียนรู้หลักการและกระบวนการทางการตลาดดิจิทัลในยุคข้อมูลและปัญญาประดิษฐ์ ครอบคลุมการวิเคราะห์ธุรกิจและกลุ่มลูกค้า การออกแบบ Customer Journey และ Brand Experience การเก็บรวบรวมและวิเคราะห์ข้อมูลลูกค้า การสร้าง Content Marketing การทำ SEO การใช้ CRM การออกแบบประสบการณ์ผู้ใช้ (UX/UI) การวัดผลและปรับปรุงประสิทธิภาพทางการตลาด รวมถึงการประยุกต์ใช้ AI และ Marketing Automation เพื่อสนับสนุนการดำเนินงานทางการตลาด โดยผู้เรียนจะได้พัฒนาโครงการจริงและนำเสนอแผนการตลาดดิจิทัลที่ขับเคลื่อนด้วยข้อมูลและเทคโนโลยี<br><br>🎯 <strong>ผู้เรียนจะได้รับ</strong><br>- ความเข้าใจหลักการตลาดดิจิทัลและเทคโนโลยีการตลาด (MarTech)</p><p>- ทักษะการวิเคราะห์ลูกค้าและออกแบบ Customer Journey</p><p>- ความสามารถในการเก็บรวบรวม วิเคราะห์ และใช้ข้อมูลเพื่อการตัดสินใจทางการตลาด</p><p>- ทักษะด้าน Content Marketing, SEO และ CRM</p><p>- ความรู้ด้าน UX/UI และการวัดผลเพื่อปรับปรุงประสิทธิภาพทางการตลาด</p><p>- ความสามารถในการประยุกต์ใช้ AI และ Marketing Automation</p><p>- ประสบการณ์ในการพัฒนาและนำเสนอแผนการตลาดดิจิทัลจากโจทย์ธุรกิจจริง<br><br>🔗 <strong>Course Syllabus</strong></p><p>สามารถศึกษารายละเอียดรายวิชา แผนการเรียนรู้ หัวข้อการสอน การวัดผล และเอกสารประกอบการเรียนได้จาก <strong>Course Syllabus :</strong><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://drive.google.com/file/d/11aILGtdovbrfWrvImU9jrwUfab87Tmj0/view?usp=sharing\">https://drive.google.com/file/d/11aILGtdovbrfWrvImU9jrwUfab87Tmj0/view?usp=sharing</a></p>",
+            "short_description": "ตอนเรียนที่ 126 | ศึกษาการตลาดดิจิทัลโดยใช้ข้อมูลและ AI วิเคราะห์ลูกค้า ออกแบบ UX/UI สร้างคอนเทนต์ วัดผลการตลาด ใช้ระบบอัตโนมัติ และพัฒนาโครงการพร้อมนำเสนอแผนการตลาดดิจิทัล",
+            "additional_info": [],
+            "course_no": "",
+            "reg_cu_name": "",
+            "seat": 40,
+            "status": "PUBLISHED",
+            "created_at": "2026-07-07T07:23:33.772Z",
+            "updated_at": "2026-07-08T04:16:11.834Z",
+            "quota_type": [
+                "YEAR_THREE"
+            ],
+            "course_owners": [
+                {
+                    "main_owner": true,
+                    "company": {
+                        "user_id": "cm7t3uecw0000o3rga1l0jodn",
+                        "company_name_th": "ไม่ระบุ"
+                    }
+                }
+            ],
+            "schedule": [
+                {
+                    "day": "SATURDAY",
+                    "start_time": "1970-01-01T02:00:00.000Z",
+                    "end_time": "1970-01-01T05:00:00.000Z",
+                    "semester_half": "FULL_SEMESTER"
+                }
+            ],
+            "class_location": [
+                "-"
+            ],
+            "_count": {
+                "course_rankings": 27
+            },
+            "course_category": [
+                "Computer Graphics/UX ",
+                "Data science / AI"
+            ],
+            "total_enrolled": 27,
+            "is_interested": false,
+            "ranking_id": null
+        }
+    ],
+    "total_courses": 27,
+    "message": "สำเร็จ"
+}

@@ -5,10 +5,35 @@ const root = process.cwd();
 const outputDirectory = path.join(root, "dist", "server");
 const assetDefinitions = [
   { route: "/", file: "site/index.html", type: "text/html; charset=utf-8", dynamicHtml: true },
+  { route: "/2-2568/", file: "site/2-2568/index.html", type: "text/html; charset=utf-8", dynamicHtml: true },
   { route: "/style.css", file: "site/style.css", type: "text/css; charset=utf-8" },
   { route: "/js/app.js", file: "site/js/app.js", type: "text/javascript; charset=utf-8" },
+  { route: "/js/semester-2-2568.js", file: "site/js/semester-2-2568.js", type: "text/javascript; charset=utf-8" },
+  { route: "/js/semester-1-2569.js", file: "site/js/semester-1-2569.js", type: "text/javascript; charset=utf-8" },
   { route: "/elective_latest.json", file: "elective_latest.json", type: "application/json; charset=utf-8", noStore: true },
+  { route: "/elective_1_2569.json", file: "elective_1_2569.json", type: "application/json; charset=utf-8", noStore: true },
+  { route: "/favicon.png", file: "site/favicon.png", type: "image/png" },
   { route: "/og.png", file: "site/og.png", type: "image/png" },
+  { route: "/assets/company-logos/chulalongkorn-university.png", file: "site/assets/company-logos/chulalongkorn-university.png", type: "image/png" },
+  { route: "/assets/company-logos/accenture.svg", file: "site/assets/company-logos/accenture.svg", type: "image/svg+xml" },
+  { route: "/assets/company-logos/the-monk-studios.png", file: "site/assets/company-logos/the-monk-studios.png", type: "image/png" },
+  { route: "/assets/company-logos/bgrimm-power.svg", file: "site/assets/company-logos/bgrimm-power.svg", type: "image/svg+xml" },
+  { route: "/assets/company-logos/playtorium.png", file: "site/assets/company-logos/playtorium.png", type: "image/png" },
+  { route: "/assets/company-logos/relearn-solution.jpg", file: "site/assets/company-logos/relearn-solution.jpg", type: "image/jpeg" },
+  { route: "/assets/company-logos/huawei.png", file: "site/assets/company-logos/huawei.png", type: "image/png" },
+  { route: "/assets/company-logos/acis.png", file: "site/assets/company-logos/acis.png", type: "image/png" },
+  { route: "/assets/company-logos/attra-inter-group.png", file: "site/assets/company-logos/attra-inter-group.png", type: "image/png" },
+  { route: "/assets/company-logos/pttgc.svg", file: "site/assets/company-logos/pttgc.svg", type: "image/svg+xml" },
+  { route: "/assets/company-logos/sea-bridge.png", file: "site/assets/company-logos/sea-bridge.png", type: "image/png" },
+  { route: "/assets/company-logos/look-alive-studio.jpg", file: "site/assets/company-logos/look-alive-studio.jpg", type: "image/jpeg" },
+  { route: "/assets/company-logos/kmutt.png", file: "site/assets/company-logos/kmutt.png", type: "image/png" },
+  { route: "/assets/company-logos/stelligence.png", file: "site/assets/company-logos/stelligence.png", type: "image/png" },
+  { route: "/assets/company-logos/fintech-thailand.png", file: "site/assets/company-logos/fintech-thailand.png", type: "image/png" },
+  { route: "/assets/company-logos/sense-info-tech.png", file: "site/assets/company-logos/sense-info-tech.png", type: "image/png" },
+  { route: "/assets/company-logos/greenmoons.png", file: "site/assets/company-logos/greenmoons.png", type: "image/png" },
+  { route: "/assets/company-logos/nipa-cloud.svg", file: "site/assets/company-logos/nipa-cloud.svg", type: "image/svg+xml" },
+  { route: "/assets/company-logos/demeter-ict.png", file: "site/assets/company-logos/demeter-ict.png", type: "image/png" },
+  { route: "/assets/company-logos/nida.svg", file: "site/assets/company-logos/nida.svg", type: "image/svg+xml" },
 ];
 
 await rm(path.join(root, "dist"), { recursive: true, force: true });
@@ -26,6 +51,7 @@ for (const definition of assetDefinitions) {
 }
 
 assets["/index.html"] = assets["/"];
+assets["/2-2568/index.html"] = assets["/2-2568/"];
 
 const workerSource = `const ASSETS = ${JSON.stringify(assets)};
 
@@ -69,6 +95,14 @@ export default {
 
     if (pathname === "/site" || pathname === "/site/") {
       return Response.redirect(new URL("/", url), 301);
+    }
+
+    if (pathname === "/1-2569" || pathname === "/1-2569/" || pathname === "/1-2569/index.html") {
+      return Response.redirect(new URL("/", url), 301);
+    }
+
+    if (pathname === "/2-2568") {
+      return Response.redirect(new URL("/2-2568/", url), 301);
     }
 
     const asset = ASSETS[pathname];

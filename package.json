@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "node --watch --watch-preserve-output scripts/dev-server.mjs",
     "build": "node scripts/build-sites.mjs",
-    "check": "node --check site/js/app.js && node scripts/check-build.mjs"
+    "check": "node --check site/js/app.js && node --check site/js/semester-2-2568.js && node --check site/js/semester-1-2569.js && node --check scripts/dev-server.mjs && node scripts/check-build.mjs"
   }
 }

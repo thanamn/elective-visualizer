@@ -8,7 +8,7 @@
   <meta property="og:title" content="CEDT Elective Explorer">
   <meta property="og:description" content="Find your electives. See your semester.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thanamn.github.io/elective-visualizer/">
+  <meta property="og:url" content="https://thanamn.github.io/elective-visualizer/2-2568/">
   <meta property="og:image" content="https://thanamn.github.io/elective-visualizer/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -17,30 +17,27 @@
   <meta name="twitter:title" content="CEDT Elective Explorer">
   <meta name="twitter:description" content="Find your electives. See your semester.">
   <meta name="twitter:image" content="https://thanamn.github.io/elective-visualizer/og.png">
-  <link rel="canonical" href="https://thanamn.github.io/elective-visualizer/">
+  <link rel="canonical" href="https://thanamn.github.io/elective-visualizer/2-2568/">
   <title>CEDT Elective Explorer</title>
-  <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png">
-  <link rel="stylesheet" href="./style.css">
-  <script defer src="./js/semester-1-2569.js"></script>
-  <script defer src="./js/app.js"></script>
+  <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="../js/semester-2-2568.js"></script>
+  <script defer src="../js/app.js"></script>
 </head>
-<body data-semester="1-2569">
+<body data-semester="2-2568">
   <a class="skip-link" href="#mainContent">Skip to timetable</a>
 
   <header class="site-header">
-    <a class="brand" href="./" aria-label="CEDT Elective Explorer home">
+    <a class="brand" href="../" aria-label="CEDT Elective Explorer latest semester">
       <span class="brand-mark" aria-hidden="true">E</span>
       <span class="brand-copy">
         <strong>Elective Explorer</strong>
-        <span>CEDT · Semester 1/2569</span>
+        <span>CEDT · Semester 2/2568</span>
       </span>
     </a>
 
     <div class="header-actions">
-      <button class="semester-link import-courses-button" id="importCoursesButton" type="button">
-        Update courses
-      </button>
-      <a class="semester-link" href="./2-2568/">Semester 2/2568</a>
+      <a class="semester-link" href="../">Latest · 1/2569</a>
       <span class="data-status" id="dataStatus" role="status">
         <span class="status-dot" aria-hidden="true"></span>
         Loading course data
@@ -109,7 +106,6 @@
                 <option value="THURSDAY">Thursday</option>
                 <option value="FRIDAY">Friday</option>
                 <option value="SATURDAY">Saturday</option>
-                <option value="SUNDAY">Sunday</option>
               </select>
             </label>
 
@@ -127,8 +123,8 @@
               <span>Year</span>
               <select id="yearSelect">
                 <option value="">Any year</option>
+                <option value="YEAR_TWO">Year 2</option>
                 <option value="YEAR_THREE">Year 3</option>
-                <option value="YEAR_FOURTH">Year 4</option>
               </select>
             </label>
 
@@ -216,7 +212,7 @@
           <div>
             <p class="eyebrow">Your planning canvas</p>
             <h2>See the whole semester.</h2>
-            <p>Your electives sit beside the fixed Year 3 timetable. Connected blocks show continuous weeks; outlined blocks need a closer look.</p>
+            <p>Your electives sit beside the fixed Year 2 timetable. Connected blocks show continuous weeks; outlined blocks need a closer look.</p>
           </div>
           <div class="plan-hero-actions">
             <button class="text-button" id="clearPlanButton" type="button">Clear plan</button>
@@ -267,15 +263,6 @@
           </div>
 
           <div class="timetable-toolbar" aria-label="Timetable display controls">
-            <div class="control-group fixed-choice-control">
-              <label for="fixedCourseChoiceSelect">Technical Writing section</label>
-              <select id="fixedCourseChoiceSelect">
-                <option value="">Choose your section…</option>
-                <option value="sections-51-55">Sections 51–55 · Morning (08:00–11:00)</option>
-                <option value="sections-56-60">Sections 56–60 · Afternoon (13:00–16:00)</option>
-              </select>
-              <small id="fixedCourseChoiceHelp">Choose one so conflict checks use your actual section.</small>
-            </div>
             <div class="control-group density-control">
               <span>Density</span>
               <div class="segmented-control" id="densityControl">
@@ -328,116 +315,6 @@
   <dialog class="course-dialog" id="courseDialog" aria-labelledby="dialogTitle">
     <button class="dialog-close" id="dialogCloseButton" type="button" aria-label="Close course details">×</button>
     <div class="dialog-content" id="dialogContent"></div>
-  </dialog>
-
-  <dialog class="import-dialog" id="importDialog" aria-labelledby="importDialogTitle">
-    <button class="dialog-close" id="importDialogCloseButton" type="button" aria-label="Close course import">×</button>
-    <div class="import-dialog-content">
-      <p class="dialog-kicker">Course data</p>
-      <h2 id="importDialogTitle">Refresh courses in about a minute.</h2>
-      <p class="import-intro">
-        Use desktop Chrome and sign in only on the official CEDT portal. This planner never
-        asks for your password, cookies, or session token.
-      </p>
-
-      <ol class="import-steps">
-        <li>
-          <span class="import-step-number" aria-hidden="true">1</span>
-          <div>
-            <strong>Open the official course list and sign in.</strong>
-            <a class="portal-link" id="openPortalLink" href="https://elective.cedt.community/list?limit=100" target="_blank" rel="noopener noreferrer">
-              Open CEDT portal ↗
-            </a>
-          </div>
-        </li>
-        <li>
-          <span class="import-step-number" aria-hidden="true">2</span>
-          <div>
-            <strong>Copy the course response.</strong>
-            <p>Press <kbd>F12</kbd>, then follow the moving pointer: Network → <code>all</code> → Response → <kbd>Ctrl+A</kbd>, <kbd>Ctrl+C</kbd>.</p>
-
-            <div class="devtools-demo" aria-hidden="true">
-              <div class="demo-titlebar">
-                <span class="demo-dots"><i></i><i></i><i></i></span>
-                <strong>DevTools</strong>
-                <span>×</span>
-              </div>
-              <div class="demo-tabs">
-                <span>Elements</span>
-                <span>Console</span>
-                <span class="demo-network-target">Network</span>
-                <span>Sources</span>
-              </div>
-              <div class="demo-panels">
-                <div class="demo-request-list">
-                  <strong>Name</strong>
-                  <span>run</span>
-                  <span>session</span>
-                  <span class="demo-all-target"><i></i>all</span>
-                  <span>category-filter</span>
-                  <span>company-filter</span>
-                </div>
-                <div class="demo-response-panel">
-                  <div class="demo-response-tabs">
-                    <span>Headers</span>
-                    <span>Payload</span>
-                    <span class="demo-response-target">Response</span>
-                  </div>
-                  <pre class="demo-json-target">{ "courses": [
-  { "name": "AI and its Application", … },
-  { "name": "Cloud Architecture", … }
-] }</pre>
-                  <span class="demo-copy-chip">Ctrl+A · Ctrl+C</span>
-                </div>
-              </div>
-              <span class="demo-cursor"></span>
-              <p class="demo-sequence">Network <b>→</b> all <b>→</b> Response <b>→</b> copy</p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <span class="import-step-number" aria-hidden="true">3</span>
-          <div>
-            <strong>Return here and let the planner paste it for you.</strong>
-            <p>Chrome may ask for clipboard permission once.</p>
-            <button class="primary-button paste-import-button" id="pasteImportButton" type="button">
-              Paste and import courses
-            </button>
-          </div>
-        </li>
-      </ol>
-
-      <details class="manual-import" id="manualImportDetails">
-        <summary>Clipboard blocked? Paste or upload manually</summary>
-        <div class="manual-import-content">
-          <label class="import-field" for="importJsonInput">
-            <span>Response JSON</span>
-            <textarea id="importJsonInput" rows="7" spellcheck="false" placeholder='Paste the response containing { "courses": [ … ] }'></textarea>
-          </label>
-
-          <div class="import-file-row">
-            <label class="secondary-button import-file-button">
-              Choose JSON file
-              <input class="sr-only" id="importFileInput" type="file" accept=".json,application/json">
-            </label>
-            <span id="importFileName">No file selected</span>
-          </div>
-
-          <button class="primary-button manual-import-button" id="applyImportButton" type="button">
-            Import this JSON
-          </button>
-        </div>
-      </details>
-
-      <p class="import-privacy-note">
-        Only the parsed course list is stored in this browser. It never leaves this device.
-      </p>
-      <p class="import-status" id="importStatus" role="status" aria-live="polite"></p>
-
-      <div class="import-actions">
-        <button class="secondary-button" id="resetImportButton" type="button">Use bundled snapshot</button>
-      </div>
-    </div>
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

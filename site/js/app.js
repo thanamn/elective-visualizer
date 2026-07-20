@@ -1,8 +1,11 @@
 "use strict";
 
-const STORAGE_KEY = "cedt-elective-plan-v2";
+const SEMESTER = window.ELECTIVE_SEMESTER;
+if (!SEMESTER) throw new Error("Semester configuration was not loaded.");
+
+const STORAGE_KEY = SEMESTER.storageKey;
 const TOTAL_WEEKS = 18;
-const DAYS = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+const DAYS = SEMESTER.days;
 const DAY_LABELS = {
   MONDAY: "Monday",
   TUESDAY: "Tuesday",
@@ -22,46 +25,12 @@ const DAY_SHORT = {
   SUNDAY: "Sun",
 };
 
-const FIXED_COURSES = [
-  {
-    id: "FIXED_OS_NETWORK",
-    name: "OS & Network",
-    schedule: [
-      fixedSchedule("MONDAY", "01:00", "04:00", [1, 2, 3, 4, 5, 6]),
-      fixedSchedule("MONDAY", "06:00", "09:00", [1, 2, 3, 4, 5, 6]),
-      fixedSchedule("TUESDAY", "06:00", "09:00", [1, 2, 3, 4, 5, 6]),
-      fixedSchedule("WEDNESDAY", "01:00", "04:00", [1, 2, 3, 4, 5, 6]),
-      fixedSchedule("WEDNESDAY", "06:00", "09:00", [1, 2, 3, 4, 5, 6]),
-      fixedSchedule("THURSDAY", "01:00", "04:00", [1, 2, 3, 4, 5, 6]),
-      fixedSchedule("THURSDAY", "06:00", "09:00", [1, 2, 3, 4, 5, 6]),
-      fixedSchedule("FRIDAY", "01:00", "04:00", [1, 2, 3, 4, 5, 6]),
-    ],
-  },
-  {
-    id: "FIXED_AI_ML",
-    name: "AI/ML",
-    schedule: [
-      fixedSchedule("MONDAY", "01:00", "04:00", [7, 8, 9]),
-      fixedSchedule("MONDAY", "06:00", "09:00", [7, 8, 9]),
-      fixedSchedule("THURSDAY", "01:00", "04:00", [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]),
-      fixedSchedule("THURSDAY", "06:00", "09:00", [7, 8, 9]),
-    ],
-  },
-  {
-    id: "FIXED_COMMUNICATION",
-    name: "Communication",
-    schedule: [
-      fixedSchedule("TUESDAY", "01:00", "04:00", range(1, 18)),
-    ],
-  },
-  {
-    id: "FIXED_FRIDAY_ACTIVITY",
-    name: "Friday Activity",
-    schedule: [
-      fixedSchedule("FRIDAY", "06:00", "09:00", range(1, 18)),
-    ],
-  },
-];
+const FIXED_COURSES = SEMESTER.fixedCourses;
+const FIXED_COURSE_CHOICE = SEMESTER.fixedCourseChoice || null;
+const COMPANY_LOGOS = SEMESTER.companyLogos || {};
+const PORTAL_IMPORT = SEMESTER.portalImport || null;
+const IMPORT_STORAGE_KEY = PORTAL_IMPORT?.storageKey || "";
+const MAX_IMPORT_BYTES = 4 * 1024 * 1024;
 
 const state = {
   courses: [],
@@ -76,14 +45,31 @@ const state = {
     category: "",
     sort: "recommended",
   },
-  currentView: "explore",
+  currentView: "plan",
+  fixedCourseChoice: restoreFixedCourseChoice(),
+  timetableDensity: "comfortable",
+  mobileTimetableView: "agenda",
   dataTimestamp: null,
+  dataSource: "bundled",
+  importedAt: null,
   toastTimer: null,
 };
 
 const ui = {
   dataStatus: document.getElementById("dataStatus"),
   reloadButton: document.getElementById("reloadButton"),
+  importCoursesButton: document.getElementById("importCoursesButton"),
+  importDialog: document.getElementById("importDialog"),
+  importDialogCloseButton: document.getElementById("importDialogCloseButton"),
+  openPortalLink: document.getElementById("openPortalLink"),
+  pasteImportButton: document.getElementById("pasteImportButton"),
+  manualImportDetails: document.getElementById("manualImportDetails"),
+  importJsonInput: document.getElementById("importJsonInput"),
+  importFileInput: document.getElementById("importFileInput"),
+  importFileName: document.getElementById("importFileName"),
+  importStatus: document.getElementById("importStatus"),
+  applyImportButton: document.getElementById("applyImportButton"),
+  resetImportButton: document.getElementById("resetImportButton"),
   courseStat: document.getElementById("courseStat"),
   categoryStat: document.getElementById("categoryStat"),
   planStat: document.getElementById("planStat"),
@@ -117,7 +103,14 @@ const ui = {
   conflictSummary: document.getElementById("conflictSummary"),
   termSummary: document.getElementById("termSummary"),
   selectionStrip: document.getElementById("selectionStrip"),
+  timetableSection: document.querySelector(".timetable-section"),
+  fixedCourseChoiceSelect: document.getElementById("fixedCourseChoiceSelect"),
+  fixedCourseChoiceHelp: document.getElementById("fixedCourseChoiceHelp"),
+  densityControl: document.getElementById("densityControl"),
+  mobileViewControl: document.getElementById("mobileViewControl"),
   timetableNotice: document.getElementById("timetableNotice"),
+  conflictList: document.getElementById("conflictList"),
+  mobileAgenda: document.getElementById("mobileAgenda"),
   timetableGrid: document.getElementById("timetableGrid"),
   mobilePlanBar: document.getElementById("mobilePlanBar"),
   mobilePlanCount: document.getElementById("mobilePlanCount"),
@@ -132,21 +125,23 @@ const ui = {
 bindEvents();
 loadData();
 
-function fixedSchedule(day, start, end, weeks) {
-  return {
-    day,
-    start_time: `1970-01-01T${start}:00.000Z`,
-    end_time: `1970-01-01T${end}:00.000Z`,
-    weeks,
-  };
-}
-
 function range(start, end) {
   return Array.from({ length: end - start + 1 }, (_, index) => start + index);
 }
 
 function bindEvents() {
   ui.reloadButton.addEventListener("click", loadData);
+  ui.importCoursesButton?.addEventListener("click", openImportDialog);
+  ui.importDialogCloseButton?.addEventListener("click", () => ui.importDialog.close());
+  ui.pasteImportButton?.addEventListener("click", pasteAndImportCourses);
+  ui.applyImportButton?.addEventListener("click", importPastedCourses);
+  ui.resetImportButton?.addEventListener("click", resetImportedCourses);
+  ui.importFileInput?.addEventListener("change", loadImportFile);
+  if (ui.openPortalLink && PORTAL_IMPORT?.portalUrl) {
+    ui.openPortalLink.href = PORTAL_IMPORT.portalUrl;
+  }
+  ui.importDialog?.addEventListener("click", (event) => closeDialogFromBackdrop(event, ui.importDialog));
+
   ui.searchInput.addEventListener("input", () => {
     state.filters.search = ui.searchInput.value.trim();
     applyFilters();
@@ -166,17 +161,24 @@ function bindEvents() {
   ui.mobileOpenPlanButton.addEventListener("click", () => setView("plan", true));
   ui.backToCoursesButton.addEventListener("click", () => setView("explore", true));
   ui.clearPlanButton.addEventListener("click", clearPlan);
+  ui.fixedCourseChoiceSelect?.addEventListener("change", () => {
+    setFixedCourseChoice(ui.fixedCourseChoiceSelect.value);
+  });
+  ui.densityControl.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-density]");
+    if (button) setTimetableDensity(button.dataset.density);
+  });
+  ui.mobileViewControl.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-mobile-view]");
+    if (button) setMobileTimetableView(button.dataset.mobileView);
+  });
+  ui.timetableGrid.addEventListener("mouseover", handleTimetableHighlight);
+  ui.timetableGrid.addEventListener("focusin", handleTimetableHighlight);
+  ui.timetableGrid.addEventListener("mouseout", clearTimetableHighlight);
+  ui.timetableGrid.addEventListener("focusout", clearTimetableHighlight);
 
   ui.dialogCloseButton.addEventListener("click", () => ui.courseDialog.close());
-  ui.courseDialog.addEventListener("click", (event) => {
-    if (event.target !== ui.courseDialog) return;
-    const rect = ui.courseDialog.getBoundingClientRect();
-    const inside = event.clientX >= rect.left
-      && event.clientX <= rect.right
-      && event.clientY >= rect.top
-      && event.clientY <= rect.bottom;
-    if (!inside) ui.courseDialog.close();
-  });
+  ui.courseDialog.addEventListener("click", (event) => closeDialogFromBackdrop(event, ui.courseDialog));
 
   window.addEventListener("keydown", (event) => {
     const target = event.target;
@@ -184,7 +186,7 @@ function bindEvents() {
       || target instanceof HTMLTextAreaElement
       || target instanceof HTMLSelectElement;
 
-    if (event.key === "/" && !isTyping && !ui.courseDialog.open) {
+    if (event.key === "/" && !isTyping && !ui.courseDialog.open && !ui.importDialog?.open) {
       event.preventDefault();
       ui.searchInput.focus();
     }
@@ -197,6 +199,16 @@ function bindEvents() {
   });
 }
 
+function closeDialogFromBackdrop(event, dialog) {
+  if (event.target !== dialog) return;
+  const rect = dialog.getBoundingClientRect();
+  const inside = event.clientX >= rect.left
+    && event.clientX <= rect.right
+    && event.clientY >= rect.top
+    && event.clientY <= rect.bottom;
+  if (!inside) dialog.close();
+}
+
 function updateFilter(key, value) {
   state.filters[key] = value;
   applyFilters();
@@ -204,6 +216,15 @@ function updateFilter(key, value) {
 
 async function loadData() {
   setLoadingState();
+  const imported = restoreImportedCourses();
+  if (imported) {
+    applyCourseData(imported.data, {
+      source: "imported",
+      importedAt: imported.importedAt,
+    });
+    return;
+  }
+
   const candidates = dataCandidates();
   let lastError = new Error("No data source was available.");
 
@@ -214,14 +235,7 @@ async function loadData() {
       const data = await response.json();
       if (!data || !Array.isArray(data.courses)) throw new Error("The file does not contain a course list.");
 
-      state.courses = data.courses.slice();
-      state.dataTimestamp = data.data_gathered_at || null;
-      pruneSavedPlan();
-      populateCategories();
-      updateDataSummary();
-      applyFilters();
-      ui.dataStatus.className = "data-status is-ready";
-      ui.dataStatus.lastChild.textContent = "Latest data ready";
+      applyCourseData(data);
       return;
     } catch (error) {
       lastError = error;
@@ -229,6 +243,19 @@ async function loadData() {
   }
 
   showLoadError(lastError);
+}
+
+function applyCourseData(data, { source = "bundled", importedAt = null } = {}) {
+  state.courses = data.courses.map(normalizeCourse);
+  state.dataTimestamp = data.data_gathered_at || importedAt || null;
+  state.dataSource = source;
+  state.importedAt = importedAt;
+  pruneSavedPlan();
+  populateCategories();
+  updateDataSummary();
+  applyFilters();
+  ui.dataStatus.className = "data-status is-ready";
+  ui.dataStatus.lastChild.textContent = source === "imported" ? "Imported data ready" : "Latest data ready";
 }
 
 function setLoadingState() {
@@ -239,21 +266,7 @@ function setLoadingState() {
 }
 
 function dataCandidates() {
-  const params = new URLSearchParams(window.location.search);
-  const requested = params.get("data");
-  const urls = [];
-
-  if (requested && (/^https?:\/\//i.test(requested) || !requested.includes("://"))) {
-    urls.push(requested);
-  }
-
-  urls.push(
-    "./elective_latest.json",
-    "../elective_latest.json",
-    "https://raw.githubusercontent.com/thanamn/elective-visualizer/main/elective_latest.json",
-  );
-
-  return [...new Set(urls)];
+  return [SEMESTER.dataPath];
 }
 
 function showLoadError(error) {
@@ -275,6 +288,207 @@ function showLoadError(error) {
   ui.courseGrid.replaceChildren(panel);
 }
 
+function openImportDialog() {
+  if (!PORTAL_IMPORT || !ui.importDialog) return;
+  setImportStatus(
+    state.dataSource === "imported"
+      ? `Currently using ${state.courses.length} locally imported courses.`
+      : "Open the portal and follow the three steps below.",
+    state.dataSource === "imported" ? "success" : "",
+  );
+  ui.resetImportButton.disabled = state.dataSource !== "imported";
+  if (typeof ui.importDialog.showModal === "function") ui.importDialog.showModal();
+  else ui.importDialog.setAttribute("open", "");
+}
+
+async function pasteAndImportCourses() {
+  if (!PORTAL_IMPORT) return;
+  if (!navigator.clipboard?.readText) {
+    revealManualImport("Automatic clipboard access is unavailable here. Paste the response below.", "error");
+    return;
+  }
+
+  const originalLabel = ui.pasteImportButton.textContent;
+  ui.pasteImportButton.disabled = true;
+  ui.pasteImportButton.textContent = "Reading clipboard…";
+  setImportStatus("Waiting for clipboard permission…");
+
+  try {
+    const text = await navigator.clipboard.readText();
+    if (!String(text || "").trim()) {
+      revealManualImport("Your clipboard is empty. Copy the Response JSON, then try again.", "error");
+      return;
+    }
+    ui.importJsonInput.value = text;
+    importCourseText(text);
+  } catch {
+    revealManualImport(
+      "Chrome blocked clipboard access. Paste the copied response into the manual box below.",
+      "error",
+    );
+  } finally {
+    ui.pasteImportButton.disabled = false;
+    ui.pasteImportButton.textContent = originalLabel;
+  }
+}
+
+function revealManualImport(message, type = "") {
+  if (ui.manualImportDetails) ui.manualImportDetails.open = true;
+  setImportStatus(message, type);
+  window.requestAnimationFrame(() => ui.importJsonInput?.focus());
+}
+
+async function loadImportFile(event) {
+  const file = event.target.files?.[0];
+  if (!file) {
+    ui.importFileName.textContent = "No file selected";
+    return;
+  }
+
+  ui.importFileName.textContent = file.name;
+  if (file.size > MAX_IMPORT_BYTES) {
+    ui.importJsonInput.value = "";
+    setImportStatus("That file is larger than 4 MB. Choose the course response JSON only.", "error");
+    return;
+  }
+
+  try {
+    ui.importJsonInput.value = await file.text();
+    const preview = parseImportedPayload(ui.importJsonInput.value);
+    setImportStatus(`${preview.courses.length} courses found. Ready to import.`, "success");
+  } catch (error) {
+    setImportStatus(error.message, "error");
+  }
+}
+
+function importPastedCourses() {
+  if (!PORTAL_IMPORT) return;
+  importCourseText(ui.importJsonInput.value);
+}
+
+function importCourseText(text) {
+  try {
+    const data = parseImportedPayload(text);
+    const importedAt = new Date().toISOString();
+    persistImportedCourses(data, importedAt);
+    applyCourseData(data, { source: "imported", importedAt });
+    ui.importJsonInput.value = "";
+    ui.importFileInput.value = "";
+    ui.importFileName.textContent = "No file selected";
+    ui.importDialog.close();
+    showToast(`${data.courses.length} courses imported from the CEDT response.`);
+    return true;
+  } catch (error) {
+    if (ui.manualImportDetails) ui.manualImportDetails.open = true;
+    setImportStatus(error.message, "error");
+    return false;
+  }
+}
+
+async function resetImportedCourses() {
+  if (!IMPORT_STORAGE_KEY) return;
+  try {
+    localStorage.removeItem(IMPORT_STORAGE_KEY);
+  } catch {
+    // Reloading still restores the bundled snapshot when storage is unavailable.
+  }
+  await loadData();
+  ui.importDialog.close();
+  showToast("Using the bundled Semester 1/2569 course snapshot.");
+}
+
+function parseImportedPayload(text) {
+  const raw = String(text || "").trim();
+  if (!raw) throw new Error("Paste the copied Response JSON, or choose a JSON file.");
+  if (new Blob([raw]).size > MAX_IMPORT_BYTES) {
+    throw new Error("That response is larger than 4 MB. Copy the course response only.");
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error("This is not valid JSON. Copy from the request’s Response tab, not Headers.");
+  }
+
+  const candidates = [
+    parsed,
+    parsed?.data,
+    parsed?.data?.data,
+    parsed?.response,
+    parsed?.response?.data,
+  ];
+  const payload = Array.isArray(parsed)
+    ? { courses: parsed }
+    : candidates.find((candidate) => candidate && Array.isArray(candidate.courses));
+
+  if (!payload) {
+    throw new Error('No "courses" list was found. Make sure you copied the response from the request named "all".');
+  }
+  if (!payload.courses.length) throw new Error("The response contains no courses.");
+
+  const courses = payload.courses.map((course, index) => {
+    const name = String(course?.name || course?.reg_cu_name || "").trim();
+    const id = String(course?.id || "").trim();
+    if (!course || typeof course !== "object" || !id || !name) {
+      throw new Error(`Course ${index + 1} is missing an id or name.`);
+    }
+    return { ...course, id };
+  });
+
+  const uniqueIds = new Set(courses.map((course) => course.id));
+  if (uniqueIds.size !== courses.length) {
+    throw new Error("The response contains duplicate course ids, so it was not imported.");
+  }
+
+  const roundIds = new Set(courses.map((course) => String(course.round_id || "").trim()).filter(Boolean));
+  if (PORTAL_IMPORT?.roundId && (roundIds.size !== 1 || !roundIds.has(PORTAL_IMPORT.roundId))) {
+    throw new Error("This response belongs to a different elective round, so it was not mixed into Semester 1/2569.");
+  }
+
+  return {
+    courses,
+    total_courses: courses.length,
+    message: typeof payload.message === "string" ? payload.message : "Imported from CEDT course response",
+    data_gathered_at: new Date().toISOString(),
+  };
+}
+
+function persistImportedCourses(data, importedAt) {
+  try {
+    localStorage.setItem(IMPORT_STORAGE_KEY, JSON.stringify({
+      version: 1,
+      importedAt,
+      data,
+    }));
+  } catch {
+    throw new Error("The browser could not save this course list. Check that local storage is available.");
+  }
+}
+
+function restoreImportedCourses() {
+  if (!IMPORT_STORAGE_KEY) return null;
+  try {
+    const stored = JSON.parse(localStorage.getItem(IMPORT_STORAGE_KEY) || "null");
+    if (stored?.version !== 1 || !stored.data || !Array.isArray(stored.data.courses)) return null;
+    if (!stored.data.courses.length) throw new Error("Stored course list is empty.");
+    return stored;
+  } catch {
+    try {
+      localStorage.removeItem(IMPORT_STORAGE_KEY);
+    } catch {
+      // A broken import is ignored if browser storage cannot be changed.
+    }
+    return null;
+  }
+}
+
+function setImportStatus(message, type = "") {
+  if (!ui.importStatus) return;
+  ui.importStatus.textContent = message;
+  ui.importStatus.className = `import-status${type ? ` is-${type}` : ""}`;
+}
+
 function populateCategories() {
   const categories = uniqueCategories();
   ui.categorySelect.replaceChildren(new Option("All areas", ""));
@@ -287,6 +501,23 @@ function uniqueCategories() {
       .map((category) => String(category || "").trim())
       .filter((category) => category && category !== "-"),
   )].sort((a, b) => a.localeCompare(b));
+}
+
+function normalizeCourse(course) {
+  const categories = (Array.isArray(course.course_category) ? course.course_category : [])
+    .map(normalizeCategory)
+    .filter(Boolean);
+  return {
+    ...course,
+    course_category: [...new Set(categories)],
+  };
+}
+
+function normalizeCategory(value) {
+  const category = String(value || "").trim();
+  if (!category || category === "-") return "";
+  if (/^cloud\s*\/?\s*system$/i.test(category)) return "Cloud / System";
+  return category;
 }
 
 function updateDataSummary() {
@@ -313,7 +544,9 @@ function updateDataSummary() {
     minute: "2-digit",
     timeZone: "Asia/Bangkok",
   }).format(timestamp);
-  ui.updatedAt.textContent = `Data snapshot · ${formatted}`;
+  ui.updatedAt.textContent = state.dataSource === "imported"
+    ? `Imported from CEDT · ${formatted}`
+    : `Data snapshot · ${formatted}`;
 }
 
 function parseDataTimestamp(value) {
@@ -435,6 +668,17 @@ function createCourseCard(course) {
   const card = element("article", "course-card");
   card.style.setProperty("--card-accent", categoryColor((course.course_category || [])[0]));
   if (state.selectedIds.has(course.id)) card.classList.add("is-selected");
+
+  const logoPath = COMPANY_LOGOS[String(course.course_owner || "").trim()];
+  if (logoPath) {
+    const watermark = element("img", "company-watermark");
+    watermark.src = logoPath;
+    watermark.alt = "";
+    watermark.loading = "lazy";
+    watermark.decoding = "async";
+    watermark.setAttribute("aria-hidden", "true");
+    card.append(watermark);
+  }
 
   const topLine = element("div", "card-topline");
   const codeParts = [
@@ -574,15 +818,17 @@ function categoryColor(category) {
   const map = {
     "Research Concept / Math": "#d9d4f7",
     "Software": "#bde6d1",
-    "Cloud/system": "#b9dded",
+    "Cloud / System": "#b9dded",
     "Computer Graphics/UX": "#f2c8d7",
     "Startup": "#f2dd83",
     "Project Management": "#f2dd83",
     "Fintech": "#bed8f2",
     "Games": "#efc8a8",
     "IT Security": "#f3b6ad",
+    "IT Certificate": "#d9d4f7",
     "Data science / AI": "#c9d1f5",
     "Robotics": "#b9dfdf",
+    "IoTs": "#b9dfdf",
     "ESG": "#cfe3b7",
   };
   return map[category] || "#d9d4f7";
@@ -637,6 +883,7 @@ function halfLabel(value) {
 function yearLabel(value) {
   if (value === "YEAR_TWO") return "Year 2";
   if (value === "YEAR_THREE") return "Year 3";
+  if (value === "YEAR_FOURTH") return "Year 4";
   return value || "";
 }
 
@@ -690,6 +937,52 @@ function restorePlan() {
   }
 }
 
+function restoreFixedCourseChoice() {
+  if (!FIXED_COURSE_CHOICE) return "";
+  try {
+    const value = localStorage.getItem(FIXED_COURSE_CHOICE.storageKey) || "";
+    return FIXED_COURSE_CHOICE.options.some((option) => option.value === value) ? value : "";
+  } catch {
+    return "";
+  }
+}
+
+function persistFixedCourseChoice() {
+  if (!FIXED_COURSE_CHOICE) return;
+  try {
+    if (state.fixedCourseChoice) {
+      localStorage.setItem(FIXED_COURSE_CHOICE.storageKey, state.fixedCourseChoice);
+    } else {
+      localStorage.removeItem(FIXED_COURSE_CHOICE.storageKey);
+    }
+  } catch {
+    // The current choice still works when browser storage is unavailable.
+  }
+}
+
+function setFixedCourseChoice(value) {
+  if (!FIXED_COURSE_CHOICE) return;
+  const option = FIXED_COURSE_CHOICE.options.find((item) => item.value === value);
+  state.fixedCourseChoice = option?.value || "";
+  persistFixedCourseChoice();
+  updatePlanUI();
+  showToast(option
+    ? `Technical Writing set to ${option.label}.`
+    : "Technical Writing section cleared.");
+}
+
+function activeFixedCourses() {
+  if (!FIXED_COURSE_CHOICE) return FIXED_COURSES;
+  const choiceIds = new Set(FIXED_COURSE_CHOICE.courseIds);
+  const alwaysFixed = FIXED_COURSES.filter((course) => !choiceIds.has(course.id));
+  const selectedOption = FIXED_COURSE_CHOICE.options.find(
+    (option) => option.value === state.fixedCourseChoice,
+  );
+  if (!selectedOption) return alwaysFixed;
+  const selectedCourse = FIXED_COURSES.find((course) => course.id === selectedOption.courseId);
+  return selectedCourse ? [...alwaysFixed, selectedCourse] : alwaysFixed;
+}
+
 function pruneSavedPlan() {
   const availableIds = new Set(state.courses.map((course) => course.id));
   state.selectedIds = new Set([...state.selectedIds].filter((id) => availableIds.has(id)));
@@ -701,7 +994,7 @@ function updatePlanUI() {
   const selected = selectedCourses();
   const analysis = analyzePlan(selected);
   const count = selected.length;
-  const conflictCount = analysis.conflictPairs.size;
+  const conflictCount = analysis.conflictGroups.length;
 
   ui.planStat.textContent = String(count);
   ui.planCountBadge.textContent = String(count);
@@ -767,25 +1060,77 @@ function setView(view, shouldScroll = false) {
   }
 }
 
+function setTimetableDensity(value) {
+  if (!["compact", "comfortable"].includes(value) || value === state.timetableDensity) return;
+  state.timetableDensity = value;
+  updatePlanUI();
+}
+
+function setMobileTimetableView(value) {
+  if (!["agenda", "grid"].includes(value) || value === state.mobileTimetableView) return;
+  state.mobileTimetableView = value;
+  updateTimetableControls();
+}
+
+function updateTimetableControls() {
+  if (ui.fixedCourseChoiceSelect) {
+    ui.fixedCourseChoiceSelect.value = state.fixedCourseChoice;
+  }
+  if (ui.fixedCourseChoiceHelp) {
+    const option = FIXED_COURSE_CHOICE?.options.find(
+      (item) => item.value === state.fixedCourseChoice,
+    );
+    ui.fixedCourseChoiceHelp.textContent = option
+      ? `Using ${option.label} for fixed-course conflicts.`
+      : "Choose one so conflict checks use your actual section.";
+  }
+  updateSegmentedControl(ui.densityControl, "density", state.timetableDensity);
+  updateSegmentedControl(ui.mobileViewControl, "mobileView", state.mobileTimetableView);
+
+  ui.timetableSection.classList.toggle("is-compact", state.timetableDensity === "compact");
+  ui.timetableSection.classList.toggle("show-mobile-grid", state.mobileTimetableView === "grid");
+}
+
+function updateSegmentedControl(container, dataKey, selectedValue) {
+  container.querySelectorAll("button").forEach((button) => {
+    const isActive = button.dataset[dataKey] === selectedValue;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
 function renderPlanView(selected, analysis) {
   const count = selected.length;
-  const conflictCount = analysis.conflictPairs.size;
+  const conflictCount = analysis.conflictGroups.length;
+  const needsFixedCourseChoice = Boolean(FIXED_COURSE_CHOICE && !state.fixedCourseChoice);
   ui.selectedSummary.textContent = count ? `${count} selected ${pluralize(count, "elective")}` : "No electives selected";
-  ui.conflictSummary.textContent = conflictCount ? `${conflictCount} ${pluralize(conflictCount, "conflict")} found` : "Clear so far";
+  ui.conflictSummary.textContent = conflictCount ? `${conflictCount} ${pluralize(conflictCount, "overlap")} found` : "Clear so far";
   ui.termSummary.textContent = formatTermSummary(selected);
 
+  updateTimetableControls();
   renderSelectionStrip(selected);
   renderTimetable(analysis.grid);
+  renderConflictList(analysis.conflictGroups);
+  renderMobileAgenda(selected, analysis.conflictGroups);
 
-  if (!count) {
+  if (needsFixedCourseChoice) {
+    ui.timetableNotice.textContent = count
+      ? "Choose your Technical Writing section to complete the conflict check."
+      : "Choose your Technical Writing section, then add electives to check your semester.";
+    ui.timetableNotice.classList.remove("has-conflict");
+    ui.timetableNotice.classList.add("needs-choice");
+  } else if (!count) {
     ui.timetableNotice.textContent = "Add an elective to begin checking your semester.";
     ui.timetableNotice.classList.remove("has-conflict");
+    ui.timetableNotice.classList.remove("needs-choice");
   } else if (conflictCount) {
-    ui.timetableNotice.textContent = `${conflictCount} possible ${pluralize(conflictCount, "conflict")} detected. Red cells show the courses that overlap.`;
+    ui.timetableNotice.textContent = `${conflictCount} exact ${pluralize(conflictCount, "overlap")} detected. Review the times and weeks below.`;
     ui.timetableNotice.classList.add("has-conflict");
+    ui.timetableNotice.classList.remove("needs-choice");
   } else {
     ui.timetableNotice.textContent = `All ${count} selected ${pluralize(count, "elective")} fit the mapped timetable.`;
     ui.timetableNotice.classList.remove("has-conflict");
+    ui.timetableNotice.classList.remove("needs-choice");
   }
 }
 
@@ -793,14 +1138,17 @@ function formatTermSummary(courses) {
   if (!courses.length) return "—";
   let full = 0;
   let half = 0;
+  let tbd = 0;
   courses.forEach((course) => {
     const formats = new Set(validSchedules(course).map((item) => item.semester_half));
     if (formats.has("FULL_SEMESTER")) full += 1;
-    else half += 1;
+    else if (formats.has("FIRST_HALF") || formats.has("SECOND_HALF")) half += 1;
+    else tbd += 1;
   });
   const parts = [];
   if (full) parts.push(`${full} full`);
   if (half) parts.push(`${half} half`);
+  if (tbd) parts.push(`${tbd} TBD`);
   return parts.join(" · ") || "Schedule TBD";
 }
 
@@ -829,8 +1177,12 @@ function renderSelectionStrip(selected) {
 function analyzePlan(selected) {
   const grid = new Map();
   const entries = [
-    ...FIXED_COURSES.map((course) => ({ ...course, isCore: true })),
-    ...selected.map((course) => ({ ...course, isCore: false })),
+    ...activeFixedCourses().map((course) => ({ ...course, isCore: true, color: course.color || "#d9d4f7" })),
+    ...selected.map((course) => ({
+      ...course,
+      isCore: false,
+      color: categoryColor((course.course_category || [])[0]),
+    })),
   ];
 
   entries.forEach((course) => {
@@ -845,23 +1197,104 @@ function analyzePlan(selected) {
           id: course.id,
           name: cleanCourseName(course),
           isCore: course.isCore,
+          color: course.color,
+          startMinutes: scheduleTimeMinutes(schedule.start_time),
+          endMinutes: scheduleTimeMinutes(schedule.end_time),
+          timeLabel: formatScheduleTime(schedule),
         });
         grid.set(key, cellEntries);
       });
     });
   });
 
-  const conflictPairs = new Set();
-  grid.forEach((cellEntries) => {
-    if (cellEntries.length < 2 || !cellEntries.some((entry) => !entry.isCore)) return;
-    for (let first = 0; first < cellEntries.length; first += 1) {
-      for (let second = first + 1; second < cellEntries.length; second += 1) {
-        conflictPairs.add([cellEntries[first].id, cellEntries[second].id].sort().join("|"));
+  return { grid, conflictGroups: buildConflictGroups(grid) };
+}
+
+function buildConflictGroups(grid) {
+  const groups = [];
+
+  DAYS.forEach((day, dayIndex) => {
+    [0, 1].forEach((sessionIndex) => {
+      let week = 1;
+      while (week <= TOTAL_WEEKS) {
+        const entries = grid.get(timetableKey(dayIndex, sessionIndex, week)) || [];
+        const pairs = cellConflictPairs(entries);
+        if (!pairs.length) {
+          week += 1;
+          continue;
+        }
+
+        const signature = conflictPairSignature(pairs);
+        let span = 1;
+        while (week + span <= TOTAL_WEEKS) {
+          const nextEntries = grid.get(timetableKey(dayIndex, sessionIndex, week + span)) || [];
+          if (conflictPairSignature(cellConflictPairs(nextEntries)) !== signature) break;
+          span += 1;
+        }
+
+        groups.push({
+          day,
+          dayIndex,
+          sessionIndex,
+          startWeek: week,
+          endWeek: week + span - 1,
+          entries: uniqueConflictEntries(pairs),
+          pairs,
+        });
+        week += span;
       }
-    }
+    });
   });
 
-  return { grid, conflictPairs };
+  return groups;
+}
+
+function scheduleTimeMinutes(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return 0;
+  return ((date.getUTCHours() + 7) % 24) * 60 + date.getUTCMinutes();
+}
+
+function cellConflictPairs(entries) {
+  const pairs = new Map();
+
+  for (let first = 0; first < entries.length; first += 1) {
+    for (let second = first + 1; second < entries.length; second += 1) {
+      const firstEntry = entries[first];
+      const secondEntry = entries[second];
+      if (firstEntry.id === secondEntry.id) continue;
+      if (firstEntry.isCore && secondEntry.isCore) continue;
+
+      const overlapStart = Math.max(firstEntry.startMinutes, secondEntry.startMinutes);
+      const overlapEnd = Math.min(firstEntry.endMinutes, secondEntry.endMinutes);
+      if (overlapStart >= overlapEnd) continue;
+
+      const ids = [firstEntry.id, secondEntry.id].sort();
+      const id = `${ids.join("|")}|${overlapStart}-${overlapEnd}`;
+      pairs.set(id, {
+        id,
+        first: firstEntry,
+        second: secondEntry,
+        overlapStart,
+        overlapEnd,
+      });
+    }
+  }
+
+  return [...pairs.values()];
+}
+
+function conflictPairSignature(pairs) {
+  return pairs.map((pair) => pair.id).sort().join("||");
+}
+
+function uniqueConflictEntries(pairs) {
+  const entries = new Map();
+  pairs.forEach((pair) => {
+    entries.set(`${pair.first.id}|${pair.first.timeLabel}`, pair.first);
+    entries.set(`${pair.second.id}|${pair.second.timeLabel}`, pair.second);
+  });
+  return [...entries.values()];
 }
 
 function scheduleSession(schedule) {
@@ -884,39 +1317,62 @@ function timetableKey(dayIndex, sessionIndex, week) {
 }
 
 function renderTimetable(grid) {
+  const visible = visibleWeekRange();
   const fragment = document.createDocumentFragment();
   fragment.append(
-    timetableCell("Day", "timetable-header"),
-    timetableCell("Session", "timetable-header"),
+    timetableCell("Day", "timetable-header timetable-sticky-day"),
+    timetableCell("Session", "timetable-header timetable-sticky-session"),
   );
-  for (let week = 1; week <= TOTAL_WEEKS; week += 1) {
+  for (let week = visible.start; week <= visible.end; week += 1) {
     fragment.append(timetableCell(`W${week}`, `timetable-header${week > 9 ? " is-second-half" : ""}`));
   }
 
   DAYS.forEach((day, dayIndex) => {
     [0, 1].forEach((sessionIndex) => {
       fragment.append(
-        timetableCell(DAY_LABELS[day], "timetable-label"),
-        timetableCell(sessionIndex === 0 ? "Morning" : "Afternoon", "timetable-session"),
+        timetableCell(DAY_LABELS[day], "timetable-label timetable-sticky-day"),
+        timetableCell(sessionIndex === 0 ? "Morning" : "Afternoon", "timetable-session timetable-sticky-session"),
       );
 
-      for (let week = 1; week <= TOTAL_WEEKS; week += 1) {
+      let week = visible.start;
+      while (week <= visible.end) {
         const entries = grid.get(timetableKey(dayIndex, sessionIndex, week)) || [];
-        const slot = timetableCell("", `timetable-slot${week > 9 ? " is-second-half" : ""}`);
+        const weekSpan = entries.length
+          ? consecutiveTimetableWeeks(grid, dayIndex, sessionIndex, week, entries, visible.end)
+          : 1;
+        const endWeek = week + weekSpan - 1;
+        const conflictPairs = cellConflictPairs(entries);
+        const conflictingIds = new Set(conflictPairs.flatMap((pair) => [pair.first.id, pair.second.id]));
+        const slot = timetableCell(
+          "",
+          `timetable-slot${week > 9 ? " is-second-half" : ""}${weekSpan > 1 ? " has-span" : ""}`,
+        );
+        if (weekSpan > 1) slot.style.gridColumnEnd = `span ${weekSpan}`;
 
         if (entries.length === 1) {
-          slot.append(createSlotCourse(entries[0], false));
+          slot.append(createSlotCourse(entries[0], false, weekSpan));
+          slot.setAttribute("aria-label", `${entries[0].name}, ${entries[0].timeLabel}, ${weekRangeLabel(week, endWeek)}`);
         } else if (entries.length > 1) {
           const stack = element("div", "slot-stack");
-          entries.forEach((entry) => stack.append(createSlotCourse(entry, true)));
+          entries.forEach((entry) => {
+            stack.append(createSlotCourse(entry, conflictingIds.has(entry.id), weekSpan));
+          });
           slot.append(stack);
-          slot.setAttribute("aria-label", `Conflict: ${entries.map((entry) => entry.name).join(" and ")}`);
+          slot.setAttribute(
+            "aria-label",
+            `${conflictPairs.length ? "Conflict: " : ""}${entries.map((entry) => `${entry.name} ${entry.timeLabel}`).join(" and ")}, ${weekRangeLabel(week, endWeek)}`,
+          );
         }
         fragment.append(slot);
+        week += weekSpan;
       }
     });
   });
 
+  const visibleWeekCount = visible.end - visible.start + 1;
+  const weekWidth = state.timetableDensity === "compact" ? 34 : 52;
+  ui.timetableGrid.style.setProperty("--visible-weeks", String(visibleWeekCount));
+  ui.timetableGrid.style.minWidth = `${166 + visibleWeekCount * weekWidth}px`;
   ui.timetableGrid.replaceChildren(fragment);
 }
 
@@ -924,14 +1380,268 @@ function timetableCell(text, className) {
   return element("div", `timetable-cell ${className}`, text);
 }
 
-function createSlotCourse(entry, conflict) {
+function consecutiveTimetableWeeks(grid, dayIndex, sessionIndex, startWeek, entries, endWeek = TOTAL_WEEKS) {
+  const signature = timetableEntrySignature(entries);
+  let weekSpan = 1;
+  while (startWeek + weekSpan <= endWeek) {
+    const nextEntries = grid.get(timetableKey(dayIndex, sessionIndex, startWeek + weekSpan)) || [];
+    if (timetableEntrySignature(nextEntries) !== signature) break;
+    weekSpan += 1;
+  }
+  return weekSpan;
+}
+
+function timetableEntrySignature(entries) {
+  return entries
+    .map((entry) => `${entry.isCore ? "core" : "elective"}:${entry.id}:${entry.startMinutes}-${entry.endMinutes}`)
+    .sort()
+    .join("|");
+}
+
+function visibleWeekRange() {
+  return { start: 1, end: 18 };
+}
+
+function weekRangeLabel(startWeek, endWeek) {
+  return startWeek === endWeek ? `week ${startWeek}` : `weeks ${startWeek}–${endWeek}`;
+}
+
+function createSlotCourse(entry, conflict, weekSpan = 1) {
   const course = element(
-    "span",
-    `slot-course${entry.isCore ? " is-core" : ""}${conflict ? " is-conflict" : ""}`,
-    abbreviateCourseName(entry.name),
+    entry.isCore ? "span" : "button",
+    `slot-course${entry.isCore ? " is-core" : ""}${conflict ? " is-conflict" : ""}${weekSpan > 1 ? " is-connected" : ""}`,
+    weekSpan > 1 ? entry.name : abbreviateCourseName(entry.name),
   );
-  course.title = entry.name;
+  course.dataset.courseId = entry.id;
+  course.style.setProperty("--course-color", entry.color || "#bde6d1");
+  course.title = `${entry.name} · ${entry.timeLabel}${entry.isCore ? "" : " · Open course details"}`;
+  if (!entry.isCore) {
+    course.type = "button";
+    course.setAttribute("aria-label", `Open ${entry.name} details. ${entry.timeLabel}.`);
+    course.addEventListener("click", () => {
+      const selectedCourse = state.courses.find((item) => item.id === entry.id);
+      if (selectedCourse) openCourseDialog(selectedCourse);
+    });
+  }
   return course;
+}
+
+function handleTimetableHighlight(event) {
+  const course = event.target.closest(".slot-course[data-course-id]");
+  if (!course || !ui.timetableGrid.contains(course)) return;
+  const courseId = course.dataset.courseId;
+  ui.timetableGrid.classList.add("has-highlight");
+  ui.timetableGrid.querySelectorAll(".slot-course[data-course-id]").forEach((slot) => {
+    slot.classList.toggle("is-highlighted", slot.dataset.courseId === courseId);
+  });
+}
+
+function clearTimetableHighlight(event) {
+  const course = event.target.closest(".slot-course[data-course-id]");
+  if (!course) return;
+  const related = event.relatedTarget instanceof Element
+    ? event.relatedTarget.closest(".slot-course[data-course-id]")
+    : null;
+  if (related?.dataset.courseId === course.dataset.courseId) return;
+  ui.timetableGrid.classList.remove("has-highlight");
+  ui.timetableGrid.querySelectorAll(".slot-course.is-highlighted").forEach((slot) => {
+    slot.classList.remove("is-highlighted");
+  });
+}
+
+function renderConflictList(conflictGroups) {
+  const visible = visibleWeekRange();
+  const visibleGroups = conflictGroups
+    .filter((group) => group.endWeek >= visible.start && group.startWeek <= visible.end)
+    .map((group) => ({
+      ...group,
+      visibleStart: Math.max(group.startWeek, visible.start),
+      visibleEnd: Math.min(group.endWeek, visible.end),
+    }));
+
+  if (!visibleGroups.length) {
+    ui.conflictList.replaceChildren();
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  visibleGroups.forEach((group) => {
+    const card = element("article", "conflict-card");
+    const heading = element("div", "conflict-card-heading");
+    const title = element(
+      "strong",
+      "",
+      `${DAY_LABELS[group.day]} ${group.sessionIndex === 0 ? "morning" : "afternoon"} · ${weekRangeLabel(group.visibleStart, group.visibleEnd)}`,
+    );
+    heading.append(
+      title,
+      element("span", "", `${group.pairs.length} exact ${pluralize(group.pairs.length, "clash")}`),
+    );
+
+    const pairList = element("div", "conflict-pairs");
+    group.pairs.forEach((pair) => {
+      const row = element("div", "conflict-pair");
+      const names = element("div", "conflict-pair-names");
+      names.append(
+        conflictCourseButton(pair.first),
+        element("span", "", "overlaps"),
+        conflictCourseButton(pair.second),
+      );
+      row.append(
+        names,
+        element("strong", "conflict-time", `${formatMinutes(pair.overlapStart)}–${formatMinutes(pair.overlapEnd)}`),
+      );
+      pairList.append(row);
+    });
+
+    const actions = element("div", "conflict-actions");
+    uniqueConflictEntries(group.pairs)
+      .filter((entry) => !entry.isCore)
+      .filter((entry, index, entries) => entries.findIndex((item) => item.id === entry.id) === index)
+      .forEach((entry) => {
+        const remove = element("button", "conflict-remove", `Remove ${entry.name}`);
+        remove.type = "button";
+        remove.addEventListener("click", () => toggleSelection(entry.id));
+        actions.append(remove);
+      });
+
+    card.append(heading, pairList);
+    if (actions.childElementCount) card.append(actions);
+    fragment.append(card);
+  });
+  ui.conflictList.replaceChildren(fragment);
+}
+
+function conflictCourseButton(entry) {
+  if (entry.isCore) return element("strong", "conflict-course is-core", entry.name);
+  const button = element("button", "conflict-course", entry.name);
+  button.type = "button";
+  button.addEventListener("click", () => {
+    const course = state.courses.find((item) => item.id === entry.id);
+    if (course) openCourseDialog(course);
+  });
+  return button;
+}
+
+function renderMobileAgenda(selected, conflictGroups) {
+  const visible = visibleWeekRange();
+  const courses = [
+    ...activeFixedCourses().map((course) => ({ ...course, isCore: true })),
+    ...selected.map((course) => ({ ...course, isCore: false })),
+  ];
+  const agendaEntries = [];
+
+  courses.forEach((course) => {
+    (course.schedule || []).filter(isValidSchedule).forEach((schedule) => {
+      const weeks = scheduleWeeks(schedule).filter((week) => week >= visible.start && week <= visible.end);
+      if (!weeks.length) return;
+      const sessionIndex = scheduleSession(schedule);
+      const startMinutes = scheduleTimeMinutes(schedule.start_time);
+      const endMinutes = scheduleTimeMinutes(schedule.end_time);
+      const hasConflict = conflictGroups.some((group) => (
+        group.day === schedule.day
+        && group.sessionIndex === sessionIndex
+        && group.endWeek >= weeks[0]
+        && group.startWeek <= weeks[weeks.length - 1]
+        && group.entries.some((entry) => (
+          entry.id === course.id
+          && entry.startMinutes === startMinutes
+          && entry.endMinutes === endMinutes
+        ))
+      ));
+      agendaEntries.push({
+        id: course.id,
+        name: cleanCourseName(course),
+        day: schedule.day,
+        isCore: course.isCore,
+        color: course.color || "#d9d4f7",
+        startMinutes,
+        endMinutes,
+        timeLabel: formatScheduleTime(schedule),
+        weeks,
+        hasConflict,
+      });
+    });
+  });
+
+  agendaEntries.sort((a, b) => (
+    DAYS.indexOf(a.day) - DAYS.indexOf(b.day)
+    || a.startMinutes - b.startMinutes
+    || a.name.localeCompare(b.name)
+  ));
+
+  const fragment = document.createDocumentFragment();
+  DAYS.forEach((day) => {
+    const dayEntries = agendaEntries.filter((entry) => entry.day === day);
+    if (!dayEntries.length) return;
+
+    const section = element("section", "agenda-day");
+    const heading = element("div", "agenda-day-heading");
+    heading.append(
+      element("h3", "", DAY_LABELS[day]),
+      element("span", "", `${dayEntries.length} ${pluralize(dayEntries.length, "block")}`),
+    );
+    section.append(heading);
+
+    dayEntries.forEach((entry) => {
+      const row = element(
+        "article",
+        `agenda-item${entry.isCore ? " is-core" : ""}${entry.hasConflict ? " has-conflict" : ""}`,
+      );
+      row.style.setProperty("--agenda-color", entry.color);
+      const time = element("div", "agenda-time");
+      const [start, end] = entry.timeLabel.split("–");
+      time.append(element("strong", "", start || entry.timeLabel), element("span", "", end || ""));
+
+      const copy = element("div", "agenda-copy");
+      if (entry.isCore) {
+        copy.append(element("strong", "agenda-course", entry.name));
+      } else {
+        const details = element("button", "agenda-course", entry.name);
+        details.type = "button";
+        details.addEventListener("click", () => {
+          const course = state.courses.find((item) => item.id === entry.id);
+          if (course) openCourseDialog(course);
+        });
+        copy.append(details);
+      }
+      copy.append(element(
+        "span",
+        "",
+        `${entry.isCore ? "Core class" : "Elective"} · ${weekListLabel(entry.weeks)}${entry.hasConflict ? " · Conflict" : ""}`,
+      ));
+
+      row.append(time, copy);
+      if (!entry.isCore) {
+        const remove = element("button", "agenda-remove", "×");
+        remove.type = "button";
+        remove.setAttribute("aria-label", `Remove ${entry.name} from your plan`);
+        remove.addEventListener("click", () => toggleSelection(entry.id));
+        row.append(remove);
+      }
+      section.append(row);
+    });
+
+    fragment.append(section);
+  });
+
+  ui.mobileAgenda.replaceChildren(fragment);
+}
+
+function weekListLabel(weeks) {
+  if (!weeks.length) return "No weeks";
+  const isConsecutive = weeks.every((week, index) => index === 0 || week === weeks[index - 1] + 1);
+  if (isConsecutive) {
+    return weeks.length === 1 ? `Week ${weeks[0]}` : `Weeks ${weeks[0]}–${weeks[weeks.length - 1]}`;
+  }
+  return `Weeks ${weeks.join(", ")}`;
+}
+
+function formatMinutes(minutes) {
+  const normalized = ((minutes % (24 * 60)) + (24 * 60)) % (24 * 60);
+  const hour = Math.floor(normalized / 60);
+  const minute = normalized % 60;
+  return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
 }
 
 function abbreviateCourseName(name) {
