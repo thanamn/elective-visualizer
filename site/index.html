@@ -282,13 +282,11 @@
 
           <div class="timetable-toolbar" aria-label="Timetable display controls">
             <div class="control-group fixed-choice-control">
-              <label for="fixedCourseChoiceSelect">Technical Writing section</label>
-              <select id="fixedCourseChoiceSelect">
-                <option value="">Choose your section…</option>
-                <option value="sections-51-55">Sections 51–55 · Morning (08:00–11:00)</option>
-                <option value="sections-56-60">Sections 56–60 · Afternoon (13:00–16:00)</option>
-              </select>
-              <small id="fixedCourseChoiceHelp">Choose one so conflict checks use your actual section.</small>
+              <span id="fixedCourseChoiceLabel">Technical Writing</span>
+              <div class="segmented-control fixed-choice-segmented" id="fixedCourseChoiceControl" role="group" aria-labelledby="fixedCourseChoiceLabel">
+                <button type="button" data-fixed-choice="sections-51-55" aria-pressed="false" aria-label="Technical Writing sections 51 to 55, morning, 8 to 11">Morning · 51–55</button>
+                <button type="button" data-fixed-choice="sections-56-60" aria-pressed="false" aria-label="Technical Writing sections 56 to 60, afternoon, 1 to 4">Afternoon · 56–60</button>
+              </div>
             </div>
             <div class="control-group density-control">
               <span>Density</span>

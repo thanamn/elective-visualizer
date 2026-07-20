@@ -1362,33 +1362,11 @@ kbd {
 }
 
 .fixed-choice-control {
-  min-width: min(100%, 350px);
+  min-width: 0;
 }
 
-.fixed-choice-control select {
-  min-height: 37px;
-  padding: 6px 34px 6px 10px;
-  color: white;
-  background: #102a3e;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 9px;
-  font-size: 12px;
-  font-weight: 750;
-}
-
-.fixed-choice-control select:hover,
-.fixed-choice-control select:focus {
-  border-color: var(--mint);
-}
-
-.fixed-choice-control option {
-  color: var(--ink);
-  background: white;
-}
-
-.fixed-choice-control small {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 10px;
+.fixed-choice-segmented button {
+  padding-inline: 11px;
 }
 
 .segmented-control {
@@ -2836,6 +2814,7 @@ button.slot-course:focus-visible {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .fixed-choice-control .segmented-control,
   .density-control .segmented-control,
   .mobile-view-control .segmented-control {
     grid-template-columns: repeat(2, 1fr);

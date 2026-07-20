@@ -102,8 +102,7 @@ const ui = {
   termSummary: document.getElementById("termSummary"),
   selectionStrip: document.getElementById("selectionStrip"),
   timetableSection: document.querySelector(".timetable-section"),
-  fixedCourseChoiceSelect: document.getElementById("fixedCourseChoiceSelect"),
-  fixedCourseChoiceHelp: document.getElementById("fixedCourseChoiceHelp"),
+  fixedCourseChoiceControl: document.getElementById("fixedCourseChoiceControl"),
   densityControl: document.getElementById("densityControl"),
   mobileViewControl: document.getElementById("mobileViewControl"),
   timetableNotice: document.getElementById("timetableNotice"),
@@ -164,8 +163,9 @@ function bindEvents() {
   ui.mobileOpenPlanButton.addEventListener("click", () => setView("plan", true));
   ui.backToCoursesButton.addEventListener("click", () => setView("explore", true));
   ui.clearPlanButton.addEventListener("click", clearPlan);
-  ui.fixedCourseChoiceSelect?.addEventListener("change", () => {
-    setFixedCourseChoice(ui.fixedCourseChoiceSelect.value);
+  ui.fixedCourseChoiceControl?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-fixed-choice]");
+    if (button) setFixedCourseChoice(button.dataset.fixedChoice);
   });
   ui.densityControl.addEventListener("click", (event) => {
     const button = event.target.closest("[data-density]");
@@ -1074,16 +1074,8 @@ function setMobileTimetableView(value) {
 }
 
 function updateTimetableControls() {
-  if (ui.fixedCourseChoiceSelect) {
-    ui.fixedCourseChoiceSelect.value = state.fixedCourseChoice;
-  }
-  if (ui.fixedCourseChoiceHelp) {
-    const option = FIXED_COURSE_CHOICE?.options.find(
-      (item) => item.value === state.fixedCourseChoice,
-    );
-    ui.fixedCourseChoiceHelp.textContent = option
-      ? `Using ${option.label} for fixed-course conflicts.`
-      : "Choose one so conflict checks use your actual section.";
+  if (ui.fixedCourseChoiceControl) {
+    updateSegmentedControl(ui.fixedCourseChoiceControl, "fixedChoice", state.fixedCourseChoice);
   }
   updateSegmentedControl(ui.densityControl, "density", state.timetableDensity);
   updateSegmentedControl(ui.mobileViewControl, "mobileView", state.mobileTimetableView);
