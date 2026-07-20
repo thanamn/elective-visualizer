@@ -1780,43 +1780,56 @@ button.slot-course:focus-visible {
 
 .mobile-plan-bar {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: min(310px, calc(100vw - 36px));
+  right: 14px;
+  bottom: 14px;
+  width: min(245px, calc(100vw - 28px));
   z-index: 50;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 9px 9px 9px 13px;
+  gap: 8px;
+  padding: 7px 7px 7px 11px;
   color: white;
   background: rgba(22, 50, 74, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(16px);
 }
 
+.mobile-plan-bar > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
 .mobile-plan-bar strong,
 .mobile-plan-bar span {
-  display: block;
+  display: inline;
 }
 
 .mobile-plan-bar strong {
-  font-size: 13px;
+  font-size: 12px;
+}
+
+.mobile-plan-bar strong::after {
+  color: rgba(255, 255, 255, 0.42);
+  content: " · ";
 }
 
 .mobile-plan-bar span {
   color: rgba(255, 255, 255, 0.65);
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .mobile-plan-bar .primary-button {
-  min-height: 36px;
-  padding-inline: 13px;
+  min-height: 31px;
+  padding-inline: 10px;
   color: var(--navy);
   background: var(--mint);
   border-color: var(--mint);
-  font-size: 12px;
+  border-radius: 9px;
+  font-size: 11px;
 }
 
 .course-dialog,

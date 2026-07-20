@@ -1003,7 +1003,7 @@ function updatePlanUI() {
   ui.planPlaceholder.hidden = count !== 0;
   ui.mobilePlanBar.hidden = count === 0 || state.currentView === "plan";
   ui.mobilePlanCount.textContent = `${count} ${pluralize(count, "course")}`;
-  ui.mobilePlanStatus.textContent = conflictCount ? `${conflictCount} ${pluralize(conflictCount, "conflict")} found` : "No conflicts";
+  ui.mobilePlanStatus.textContent = conflictCount ? `${conflictCount} ${pluralize(conflictCount, "conflict")}` : "Clear";
 
   ui.planPreviewStatus.textContent = conflictCount
     ? `${conflictCount} possible ${pluralize(conflictCount, "conflict")}—check the timetable.`
