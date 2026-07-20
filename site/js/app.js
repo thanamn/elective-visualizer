@@ -1577,7 +1577,7 @@ function renderMobileAgenda(selected, conflictGroups) {
       copy.append(element(
         "span",
         "",
-        `${entry.isCore ? "Core class" : "Elective"} · ${weekListLabel(entry.weeks)}${entry.hasConflict ? " · Conflict" : ""}`,
+        `${entry.isCore ? "Fixed course" : "Elective"} · ${weekListLabel(entry.weeks)}${entry.hasConflict ? " · Conflict" : ""}`,
       ));
 
       row.append(time, copy);
