@@ -1780,18 +1780,18 @@ button.slot-course:focus-visible {
 
 .mobile-plan-bar {
   position: fixed;
-  right: 12px;
-  bottom: 12px;
-  left: 12px;
+  right: 18px;
+  bottom: 18px;
+  width: min(310px, calc(100vw - 36px));
   z-index: 50;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 10px 10px 10px 14px;
+  gap: 10px;
+  padding: 9px 9px 9px 13px;
   color: white;
   background: rgba(22, 50, 74, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(16px);
 }
@@ -1811,10 +1811,12 @@ button.slot-course:focus-visible {
 }
 
 .mobile-plan-bar .primary-button {
-  min-height: 38px;
+  min-height: 36px;
+  padding-inline: 13px;
   color: var(--navy);
   background: var(--mint);
   border-color: var(--mint);
+  font-size: 12px;
 }
 
 .course-dialog,
