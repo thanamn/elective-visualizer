@@ -434,7 +434,7 @@ main {
   z-index: 10;
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(0, 2fr);
-  gap: 14px;
+  gap: 12px 14px;
   align-items: end;
   padding: 18px 28px;
   background: rgba(255, 254, 250, 0.96);
@@ -510,9 +510,139 @@ kbd {
 
 .filter-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(95px, 0.75fr)) minmax(150px, 1.15fr) minmax(135px, 0.95fr) auto;
+  grid-template-columns: repeat(3, minmax(95px, 0.75fr)) minmax(150px, 1.15fr) minmax(135px, 0.95fr) auto;
   gap: 9px;
   align-items: end;
+}
+
+.day-filter {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.day-filter legend {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 0 0 6px 2px;
+  color: var(--ink-faint);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.day-filter legend small {
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.day-checklist {
+  display: flex;
+  min-width: 0;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.day-check {
+  --day-color: var(--paper-deep);
+  position: relative;
+  min-width: 76px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.day-check input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.day-check-visual {
+  display: flex;
+  height: 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px 0 8px;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--day-color) 30%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--day-color) 62%, var(--line));
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.day-check-mark {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  place-items: center;
+  color: transparent;
+  background: rgba(255, 254, 250, 0.72);
+  border: 1px solid color-mix(in srgb, var(--day-color) 72%, var(--line-strong));
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.day-check:hover .day-check-visual {
+  border-color: color-mix(in srgb, var(--day-color) 80%, var(--ink-soft));
+  transform: translateY(-1px);
+}
+
+.day-check input:focus-visible + .day-check-visual {
+  outline: 3px solid rgba(230, 83, 61, 0.35);
+  outline-offset: 3px;
+}
+
+.day-check input:checked + .day-check-visual {
+  color: var(--ink);
+  background: var(--day-color);
+  border-color: color-mix(in srgb, var(--day-color) 58%, var(--ink));
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--day-color) 42%, transparent);
+}
+
+.day-check input:checked + .day-check-visual .day-check-mark {
+  color: var(--white);
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.day-monday {
+  --day-color: var(--yellow);
+}
+
+.day-tuesday {
+  --day-color: var(--danger-soft);
+}
+
+.day-wednesday {
+  --day-color: var(--mint);
+}
+
+.day-thursday {
+  --day-color: #fce5cd;
+}
+
+.day-friday {
+  --day-color: #dce8f1;
+}
+
+.day-saturday {
+  --day-color: var(--lilac);
+}
+
+.day-sunday {
+  --day-color: #f2b8ad;
 }
 
 .select-field {
@@ -2461,7 +2591,7 @@ button.slot-course:focus-visible {
   }
 
   .filter-row {
-    grid-template-columns: repeat(6, 1fr) auto;
+    grid-template-columns: repeat(5, 1fr) auto;
   }
 
   .course-grid {
@@ -2636,6 +2766,20 @@ button.slot-course:focus-visible {
   .filter-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+  }
+
+  .day-checklist {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .day-check {
+    min-width: 0;
+  }
+
+  .day-check-visual {
+    justify-content: center;
+    padding-inline: 7px;
   }
 
   .select-field-wide {

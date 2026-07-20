@@ -38,7 +38,7 @@ const state = {
   selectedIds: restorePlan(),
   filters: {
     search: "",
-    day: "",
+    days: new Set(),
     half: "",
     year: "",
     language: "",
@@ -80,7 +80,7 @@ const ui = {
   exploreView: document.getElementById("exploreView"),
   planView: document.getElementById("planView"),
   searchInput: document.getElementById("searchInput"),
-  daySelect: document.getElementById("daySelect"),
+  dayFilter: document.getElementById("dayFilter"),
   halfSelect: document.getElementById("halfSelect"),
   yearSelect: document.getElementById("yearSelect"),
   languageSelect: document.getElementById("languageSelect"),
@@ -146,7 +146,13 @@ function bindEvents() {
     state.filters.search = ui.searchInput.value.trim();
     applyFilters();
   });
-  ui.daySelect.addEventListener("change", () => updateFilter("day", ui.daySelect.value));
+  ui.dayFilter.addEventListener("change", () => {
+    state.filters.days = new Set(
+      [...ui.dayFilter.querySelectorAll('input[type="checkbox"]:checked')]
+        .map((input) => input.value),
+    );
+    applyFilters();
+  });
   ui.halfSelect.addEventListener("change", () => updateFilter("half", ui.halfSelect.value));
   ui.yearSelect.addEventListener("change", () => updateFilter("year", ui.yearSelect.value));
   ui.languageSelect.addEventListener("change", () => updateFilter("language", ui.languageSelect.value));
@@ -557,7 +563,7 @@ function parseDataTimestamp(value) {
 
 function applyFilters() {
   const query = normalizeText(state.filters.search);
-  const { day, half, year, language, category, sort } = state.filters;
+  const { days, half, year, language, category, sort } = state.filters;
 
   let courses = state.courses.filter((course) => {
     if (query && !courseSearchText(course).includes(query)) return false;
@@ -566,7 +572,7 @@ function applyFilters() {
     if (category && !(course.course_category || []).includes(category)) return false;
 
     const schedule = Array.isArray(course.schedule) ? course.schedule : [];
-    if (day && !schedule.some((item) => item.day === day)) return false;
+    if (days.size && !schedule.some((item) => days.has(item.day))) return false;
     if (half && !schedule.some((item) => item.semester_half === half)) return false;
     return true;
   });
@@ -617,7 +623,7 @@ function updateFilterSummary() {
   const total = state.courses.length;
   const hasFilters = Boolean(
     state.filters.search
-    || state.filters.day
+    || state.filters.days.size
     || state.filters.half
     || state.filters.year
     || state.filters.language
@@ -639,7 +645,7 @@ function updateFilterSummary() {
 function resetFilters() {
   state.filters = {
     search: "",
-    day: "",
+    days: new Set(),
     half: "",
     year: "",
     language: "",
@@ -647,7 +653,9 @@ function resetFilters() {
     sort: "recommended",
   };
   ui.searchInput.value = "";
-  ui.daySelect.value = "";
+  ui.dayFilter.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+    input.checked = false;
+  });
   ui.halfSelect.value = "";
   ui.yearSelect.value = "";
   ui.languageSelect.value = "";

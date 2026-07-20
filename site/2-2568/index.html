@@ -97,19 +97,6 @@
 
           <div class="filter-row">
             <label class="select-field">
-              <span>Day</span>
-              <select id="daySelect">
-                <option value="">Any day</option>
-                <option value="MONDAY">Monday</option>
-                <option value="TUESDAY">Tuesday</option>
-                <option value="WEDNESDAY">Wednesday</option>
-                <option value="THURSDAY">Thursday</option>
-                <option value="FRIDAY">Friday</option>
-                <option value="SATURDAY">Saturday</option>
-              </select>
-            </label>
-
-            <label class="select-field">
               <span>Term</span>
               <select id="halfSelect">
                 <option value="">Any length</option>
@@ -156,6 +143,57 @@
 
             <button class="text-button reset-button" id="resetFilters" type="button" hidden>Clear filters</button>
           </div>
+
+          <fieldset class="day-filter" id="dayFilter">
+            <legend>
+              <span>Days</span>
+              <small>Select one or more</small>
+            </legend>
+            <div class="day-checklist">
+              <label class="day-check day-monday">
+                <input type="checkbox" value="MONDAY" aria-label="Monday">
+                <span class="day-check-visual">
+                  <span class="day-check-mark" aria-hidden="true">✓</span>
+                  <span>Mon</span>
+                </span>
+              </label>
+              <label class="day-check day-tuesday">
+                <input type="checkbox" value="TUESDAY" aria-label="Tuesday">
+                <span class="day-check-visual">
+                  <span class="day-check-mark" aria-hidden="true">✓</span>
+                  <span>Tue</span>
+                </span>
+              </label>
+              <label class="day-check day-wednesday">
+                <input type="checkbox" value="WEDNESDAY" aria-label="Wednesday">
+                <span class="day-check-visual">
+                  <span class="day-check-mark" aria-hidden="true">✓</span>
+                  <span>Wed</span>
+                </span>
+              </label>
+              <label class="day-check day-thursday">
+                <input type="checkbox" value="THURSDAY" aria-label="Thursday">
+                <span class="day-check-visual">
+                  <span class="day-check-mark" aria-hidden="true">✓</span>
+                  <span>Thu</span>
+                </span>
+              </label>
+              <label class="day-check day-friday">
+                <input type="checkbox" value="FRIDAY" aria-label="Friday">
+                <span class="day-check-visual">
+                  <span class="day-check-mark" aria-hidden="true">✓</span>
+                  <span>Fri</span>
+                </span>
+              </label>
+              <label class="day-check day-saturday">
+                <input type="checkbox" value="SATURDAY" aria-label="Saturday">
+                <span class="day-check-visual">
+                  <span class="day-check-mark" aria-hidden="true">✓</span>
+                  <span>Sat</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
         </div>
 
         <div class="results-header">
