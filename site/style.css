@@ -1215,6 +1215,21 @@ kbd {
   font-weight: 700;
 }
 
+.selection-pill.has-logo {
+  padding-left: 6px;
+}
+
+.selection-pill-logo {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  padding: 2px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: contain;
+}
+
 .selection-pill button {
   display: grid;
   place-items: center;

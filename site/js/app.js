@@ -667,7 +667,7 @@ function createCourseCard(course) {
   card.style.setProperty("--card-accent", categoryColor((course.course_category || [])[0]));
   if (state.selectedIds.has(course.id)) card.classList.add("is-selected");
 
-  const logoPath = COMPANY_LOGOS[String(course.course_owner || "").trim()];
+  const logoPath = organizationLogoPath(course);
   if (logoPath) {
     const watermark = element("img", "company-watermark");
     watermark.src = logoPath;
@@ -711,6 +711,10 @@ function createCourseCard(course) {
 
   card.append(topLine, title, owner, schedules, tags, interest, actions);
   return card;
+}
+
+function organizationLogoPath(course) {
+  return COMPANY_LOGOS[String(course.course_owner || "").trim()] || "";
 }
 
 function createDemandTag(course) {
@@ -1134,6 +1138,22 @@ function renderSelectionStrip(selected) {
     const pill = element("div", "selection-pill");
     const label = element("span", "", cleanCourseName(course));
     const remove = element("button", "", "×");
+    const logoPath = organizationLogoPath(course);
+
+    if (logoPath) {
+      const logo = element("img", "selection-pill-logo");
+      logo.src = logoPath;
+      logo.alt = "";
+      logo.decoding = "async";
+      logo.setAttribute("aria-hidden", "true");
+      logo.addEventListener("error", () => {
+        logo.remove();
+        pill.classList.remove("has-logo");
+      }, { once: true });
+      pill.classList.add("has-logo");
+      pill.append(logo);
+    }
+
     remove.type = "button";
     remove.setAttribute("aria-label", `Remove ${cleanCourseName(course)} from your plan`);
     remove.addEventListener("click", () => toggleSelection(course.id));
