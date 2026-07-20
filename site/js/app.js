@@ -106,10 +106,6 @@ const ui = {
   conflictList: document.getElementById("conflictList"),
   mobileAgenda: document.getElementById("mobileAgenda"),
   timetableGrid: document.getElementById("timetableGrid"),
-  mobilePlanBar: document.getElementById("mobilePlanBar"),
-  mobilePlanCount: document.getElementById("mobilePlanCount"),
-  mobilePlanStatus: document.getElementById("mobilePlanStatus"),
-  mobileOpenPlanButton: document.getElementById("mobileOpenPlanButton"),
   courseDialog: document.getElementById("courseDialog"),
   dialogCloseButton: document.getElementById("dialogCloseButton"),
   dialogContent: document.getElementById("dialogContent"),
@@ -157,7 +153,6 @@ function bindEvents() {
   ui.exploreTab.addEventListener("click", () => setView("explore"));
   ui.planTab.addEventListener("click", () => setView("plan"));
   ui.openPlanButton.addEventListener("click", () => setView("plan", true));
-  ui.mobileOpenPlanButton.addEventListener("click", () => setView("plan", true));
   ui.backToCoursesButton.addEventListener("click", () => setView("explore", true));
   ui.clearPlanButton.addEventListener("click", clearPlan);
   ui.fixedCourseChoiceControl?.addEventListener("click", (event) => {
@@ -1005,10 +1000,6 @@ function updatePlanUI() {
   ui.openPlanButton.disabled = count === 0;
   ui.clearPlanButton.disabled = count === 0;
   ui.planPlaceholder.hidden = count !== 0;
-  ui.mobilePlanBar.hidden = count === 0 || state.currentView === "plan";
-  ui.mobilePlanCount.textContent = `${count} ${pluralize(count, "course")}`;
-  ui.mobilePlanStatus.textContent = conflictCount ? `${conflictCount} ${pluralize(conflictCount, "conflict")}` : "Clear";
-
   ui.planPreviewStatus.textContent = conflictCount
     ? `${conflictCount} possible ${pluralize(conflictCount, "conflict")}—check the timetable.`
     : "No timetable conflicts.";
